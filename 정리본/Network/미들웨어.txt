@@ -1,0 +1,22 @@
+ware : 제품
+
+hardware : cpu,ram,disk ... 부품
+
+software : hardware 자원을 이용해서 특정 목적달성 위해 사용되는 컴퓨터 프로그램.
+
+
+
+System Software == OS (Operating System)  :  hardware 자원을 관리 / Application 관리 / file 관리..
+
+
+Application  :  사용자 요구사항을 만족하는 프로그램
+
+
+JDK 다운 받고 bin 경로를 실행에 sysdm.cpl 입력해 고급에 환경변수에 시스템 변수에 Path에 편집에 경로 붙여넣기 하고 맨 위로 이동 시키면 됨.
+
+
+이클립스 들어가서 설정해야 하는거
+윈도우 ->프리프런스-> 제너럴 ->워크스페이스-> 텍스트 파일 ->인코딩 utf-8로 변경 -> 검색창 files 검색 -> cssfiles에 utf-8로 설정 ->html jsp도 마찬가지
+
+톰캣설정하기
+FIle ->new -> Other -> server 검색 -> tomcat9.0 설정 -> Brows-> 톰캣 경로 설정하기 -> 톰캣 파일 끝까지 들어가서 완료 누르기 (bin 나올때까지)  -> 서버에 들어가서 -> 8091으로 바꾸기 - > 8090으로 바꾸기 (위에서 밑으로) -> 톰캣에서 오른쪽 마우스 ->start 누르기 -> 다시 stop

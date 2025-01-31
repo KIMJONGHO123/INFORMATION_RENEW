@@ -1,0 +1,16 @@
+IDE (GIT)			-Eclipse(JAVA,JSP/SERVLET)
+CMD			-STS3(전자정부 Framework)
+SourceTree		-Intellij
+깃크라켄			-Vscode
+
+Git 관련 기본 기술 git add, git commit,  git push..
+Git Stash(임시저장)
+Git rebase
+GIT rebase merge(git tree 깔끔작업)
+
+GIT FLOW
+
+rebase : base에 있는 커밋들을 전부다 업데이트
+
+feature  보다 높은 위치에 커밋이 하나 있어야한다.
+rebase할려고하는  branch로 이동 

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+     <!-- 테이블 기본 -->
+    <table border="1" width="400px" height ="300px">
+        <tr>
+            <td>열이름1</td>
+            <td>열이름2</td>
+            <td>열이름3</td>
+
+        </tr>
+        <tr>
+            <td>값1</td>
+            <td>값2</td>
+            <td>값3</td>
+
+        </tr>
+    </table>
+
+    <hr/>
+
+    <!-- rowspan : 행 병합 -->
+
+    <style>
+        .tbl_rowspan td{
+            width: 35px; height: 35px;border: 1px solid;
+            text-align: center;
+        }
+    </style>
+    <table class="tbl_rowspan">
+        <caption>행 병합</caption>
+        <tr>
+            <td rowspan="2">1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <!-- <td>5</td> -->
+            <td rowspan="2">6</td>
+            <td>7</td>
+            <td rowspan="3">8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <!-- <td>10</td> -->
+            <td>11</td>
+            <!-- <td>12</td> -->
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <!-- <td>16</td> -->
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+        </tr>
+    </table>    
+
+    <hr>
+    <!-- colspan : 열 병합 -->
+
+    <style>
+        .tbl_columspan td{
+            width: 35px; height: 35px;border: 1px solid;
+            text-align: center;
+        }
+    </style>
+    <table class="tbl_columspan">
+        <caption>열 병합</caption>
+        <tr>
+            <td colspan="2">1</td>
+            <!-- <td>2</td> -->
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td colspan="3">6</td>
+            <!-- <td>7</td>
+            <td>8</td> -->
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td colspan="4">13</td>
+            <!-- <td>14</td>
+            <td>15</td>
+            <td>16</td> -->
+        </tr>
+        <tr>
+            <td colspan="3">17</td>
+            <!-- <td>18</td>
+            <td>19</td> -->
+            <td>20</td>
+        </tr>
+    </table>    
+</body>
+</html>

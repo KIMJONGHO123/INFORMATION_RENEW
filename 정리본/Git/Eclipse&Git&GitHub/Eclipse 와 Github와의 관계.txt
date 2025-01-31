@@ -1,0 +1,9 @@
+LocalHost(이클립스)                                 REMOTE
+GIT REPO                            ->               GITHUB REPO
+                                       PUSH
+
+
+
+LocalHost(이클립스)                                 REMOTE
+GIT REPO                            <-               GITHUB REPO
+                                       CLONE

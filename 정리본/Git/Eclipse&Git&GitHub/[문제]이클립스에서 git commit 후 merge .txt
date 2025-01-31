@@ -1,0 +1,30 @@
+1 workspace 경로를 변경 (폴더명 : workspace2)
+
+2. 기본 작업 세팅하기
+- Tomcat 연결
+- Dynamic Wev Project 생성
+-Java version 11버전 설정
+- servlet.jar, jsp-api.jar를 lib로 이동
+-webapp > index.jsp 생성
+- 동작확인
+
+3. git 설정
+-git init 설정
+- index.jsp 에 내용추가 후 commit하기 (V0.0 - master)
+-branch 생성 (dev) -----
+-dev branch로 전환후 index.jsp 에 내용 수정 후 commit (v0.1 - dev)------
+- branch 생성(feature/board)-------
+-feature / board branch로 전환후 index.sjp에 내용 수정 후 commit (V0.2.board)----
+-feature /auth branch로 전환후 index.jsp에 내용 수정 후 commit(V0.2- auth)--
+-feature/board -> dev로 병합 (V0.2-dev board)-----
+-feature/auth -> dev로 병합 (V0.2-dev auth)-----
+-dev -> master 로 병합 (V0.2 master)----
+-과정에서 발생되는 Conflict는 적절히 수행해서 Merging 해보세요 ----
+
+
+
+
+dev에서 feature/board만들고 내용 적고 커밋하고 
+dev에서 feature/auth만들고 내용적고 커밋하고
+
+일렬로 할려면 feature/board에서 dev merge하면 feature/board가 올라간다

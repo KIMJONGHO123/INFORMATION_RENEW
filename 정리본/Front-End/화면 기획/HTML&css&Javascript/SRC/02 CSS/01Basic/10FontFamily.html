@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .block1 {
+        font-family: "Playfair Display", serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+      }
+      /* 글꼴 등록 */
+      @font-face {
+        font-family: "custom-font-01";
+        src: url("./fonts/Naver_Fonts/나눔손글씨\ 세아체.ttf");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "custom-font-02";
+        src: url("./fonts/Noto_Serif_Todhri/NotoSerifTodhri-Regular.ttf");
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="font-family: 'Times New Roman', Times, serif">HelloWolrd</div>
+    <div class="block1">HelloWolrd</div>
+    <div style="font-family: 'custom-font-01'">HelloWolrd</div>
+    <div style="font-family: 'custom-font-02'">HelloWolrd</div>
+    <div>HelloWolrd</div>
+  </body>
+</html>

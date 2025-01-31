@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- BS5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-size: 0.9rem;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url("./images/trees-8458466_1280.jpg"); /* 배경 이미지 설정 */
+        background-size: cover; /* 화면 가득 채우기 */
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .row > .login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .custon-opacity:hover {
+        opacity: 0.4;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .btn-secondary {
+        border-radius: 20px;
+        padding: 5px 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="/test.jsp" method="get" class="mt-5">
+      <div class="row">
+        <h2 class="login">로그인</h2>
+      </div>
+      <div class="row mb-3">
+        <label for="" class="form-label fw-bold">아이디 : </label>
+        <input type="text" name="username" class="form-control" />
+      </div>
+      <div class="row mb-3">
+        <label for="" class="form-label fw-bold">패스워드 : </label>
+        <input type="password" name="username" class="form-control" />
+      </div>
+
+      <div>
+        <input type="checkbox" id="login_maintain" />
+        <label for="login_maintain">로그인 상태를 유지</label>
+      </div>
+
+      <div class="row-line"></div>
+
+      <div class="row mb-1 custon-opacity">
+        <label for="" class="form-label"></label>
+        <button class="btn btn-secondary">로그인</button>
+      </div>
+      <div class="row mb-1 custon-opacity">
+        <label for="" form-label></label>
+        <button class="btn btn-secondary">회원가입</button>
+      </div>
+    </form>
+  </body>
+</html>

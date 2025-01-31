@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .wrapper {
+        height: 3000px;
+        border: 5px solid red;
+      }
+      .bg {
+        position: absolute;
+        left: 0;
+        top: 500px;
+        width: 100vw;
+        height: 420px;
+        border: 1px solid;
+        /* 배경이미지 */
+        background-image: url("https://cdn.pixabay.com/photo/2020/01/05/07/22/winter-4742436_1280.jpg");
+        /* 이미지 사이즈 */
+        /* auto : 이미지 크기대로 지정, cover: 전체 채우기, contain : 이미지 비율을 유지하면서 채우기 */
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* 배치 */
+        /* 스크롤 이동시에 이미지를 고정 예) 스타벅스 홈페이지 */
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="bg"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+지혜 : 문제화된 문제를 패턴화된 지식
+지식 : 
+정보 : 1차 가공된 자료
+자료
+
+
+table을 묶은 자료가 DATABASE.
+
+information_schema	:	메타데이터 제공, 데이터베이스 정보 제공(테이블, 열, 인덱스...등)
+Performance_schema	:	시스템 성능 관련 정보 제공(쿼리성능, 서버리소스 사용현황, 대기중인 이벤트 등)
+mysql				:	인증정보(사용자정보, 권한정보 등)
+sys				:	Performance_schema, Information_schema 의 분석을 돕기위해 만들어진 DB(여러 View이 포함)
+
+
+primarykey : 유일한 값 , null값도 안된다.
+
+
+CREATE TABLE `test1db`.`tbl_score` (
+  `user_name` VARCHAR(45) NOT NULL,
+  `gender` VARCHAR(45) NULL,
+  `subject` VARCHAR(45) NULL,
+  `type` VARCHAR(45) NULL,
+  `test_type` VARCHAR(45) NULL,
+  `score` INT NULL,
+  PRIMARY KEY (`user_name`));
+
+
+column 추가 : alter table 테이블명 add column 컬럼명 자료형 제약조건
+column 수정 : alter table 테이블명 change column 기존컬럼명 변경컬럼명 변경자료형 제약조건
+column 삭제 : alter table 테이블명 drop 컬럼명
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/cummon.css" />
+    <!-- 나중에 만들어진 애가 적용이 된다. -->
+    <style>
+      h1 {
+        background-color: orange !important;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+        문서내 style 태그       문서내style 태그랑 외부 css link 우선순위 같음 -> 나중에 만들어진 애가 최종적으로 적용이 된다.
+        외부 css 생성 이후 link 설정(권장)
+        inline style(권장 x) 우선순위 제일 높다.
+        !inportant(권장 x)
+     -->
+
+    <h1 style="background-color: black; color: while">HelloWolrd</h1>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+7 feature branch에서 작업 진행
+8 feature 에서 ddd.txt 파일생성후 내용입력 -> commit(V0.3)
+9 feature 에서 dev으로 merging 작업수행
+10 dev branch 에서 aaa.txt 내용 추가 -> commit(V0.4 by dev)
+11 feature branch 에서 aaa.txt 내용 추가 -> commit(V0.4 feature)
+12 Conflict 해결 이후 dev에 병합
+13 dev 내용 master에 병합
+
+Microsoft Windows [Version 10.0.19045.5247]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Administrator\Downloads\TEST>git init
+Initialized empty Git repository in C:/Users/Administrator/Downloads/TEST/.git/
+
+C:\Users\Administrator\Downloads\TEST>git add *
+
+C:\Users\Administrator\Downloads\TEST>git commit -m "V0.0"
+[master (root-commit) d81fcb2] V0.0
+ 1 file changed, 1 insertion(+)
+ create mode 100644 aaa.txt
+
+C:\Users\Administrator\Downloads\TEST>git branch dev
+
+C:\Users\Administrator\Downloads\TEST>git branch featrue
+
+C:\Users\Administrator\Downloads\TEST>git branch
+  dev
+  featrue
+* master
+
+C:\Users\Administrator\Downloads\TEST>git switch feature
+fatal: invalid reference: feature
+
+C:\Users\Administrator\Downloads\TEST>git switch featrue
+Switched to branch 'featrue'
+
+C:\Users\Administrator\Downloads\TEST>git status
+On branch featrue
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ddd.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Administrator\Downloads\TEST>git add *
+
+C:\Users\Administrator\Downloads\TEST>git commit -m V0.3
+[featrue 29cb39f] V0.3
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ddd.txt
+
+C:\Users\Administrator\Downloads\TEST>git switch dev
+Switched to branch 'dev'
+
+C:\Users\Administrator\Downloads\TEST>git merge featrue
+Updating d81fcb2..29cb39f
+Fast-forward
+ ddd.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ddd.txt
+
+C:\Users\Administrator\Downloads\TEST>git log --oneline
+29cb39f (HEAD -> dev, featrue) V0.3
+d81fcb2 (master) V0.0
+
+C:\Users\Administrator\Downloads\TEST>git branch dev
+fatal: a branch named 'dev' already exists
+
+C:\Users\Administrator\Downloads\TEST>git switch dev
+Already on 'dev'
+
+C:\Users\Administrator\Downloads\TEST>git status
+On branch dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   aaa.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Administrator\Downloads\TEST>git add *
+
+C:\Users\Administrator\Downloads\TEST>git commit -m V0.4 by dev
+error: pathspec 'by' did not match any file(s) known to git
+error: pathspec 'dev' did not match any file(s) known to git
+
+C:\Users\Administrator\Downloads\TEST>git commit -m "V0.4 by dev"
+[dev 81f716e] V0.4 by dev
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\Administrator\Downloads\TEST>git switch feature
+fatal: invalid reference: feature
+
+C:\Users\Administrator\Downloads\TEST>git switch featrue
+Switched to branch 'featrue'
+
+C:\Users\Administrator\Downloads\TEST>git status
+On branch featrue
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   aaa.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Administrator\Downloads\TEST>git add *
+
+C:\Users\Administrator\Downloads\TEST>git commit -m "V0.4 by featrue"
+[featrue 6d5768d] V0.4 by featrue
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\Administrator\Downloads\TEST>git switch dev
+Switched to branch 'dev'
+
+C:\Users\Administrator\Downloads\TEST>git merge featrue
+Auto-merging aaa.txt
+CONFLICT (content): Merge conflict in aaa.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+C:\Users\Administrator\Downloads\TEST>git status
+On branch dev
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   aaa.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Administrator\Downloads\TEST>git add *
+
+C:\Users\Administrator\Downloads\TEST>git log --oneline
+81f716e (HEAD -> dev) V0.4 by dev
+29cb39f V0.3
+d81fcb2 (master) V0.0
+
+C:\Users\Administrator\Downloads\TEST>git merge --continue
+[dev 49f002c] Merge branch 'featrue' into dev
+
+C:\Users\Administrator\Downloads\TEST>git log --oneline
+49f002c (HEAD -> dev) Merge branch 'featrue' into dev
+6d5768d (featrue) V0.4 by featrue
+81f716e V0.4 by dev
+29cb39f V0.3
+d81fcb2 (master) V0.0
+
+C:\Users\Administrator\Downloads\TEST>git switch master
+Switched to branch 'master'
+
+C:\Users\Administrator\Downloads\TEST>git merge dev
+Updating d81fcb2..49f002c
+Fast-forward
+ aaa.txt | 4 +++-
+ ddd.txt | 1 +
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+ create mode 100644 ddd.txt
+
+C:\Users\Administrator\Downloads\TEST>git log --oneline
+49f002c (HEAD -> master, dev) Merge branch 'featrue' into dev
+6d5768d (featrue) V0.4 by featrue
+81f716e V0.4 by dev
+29cb39f V0.3
+d81fcb2 V0.0
+
+---------------------------------------------------------------------
+마지막에 한번더 합치기
+C:\Users\Administrator\Downloads\TEST>
+
+C:\Users\Administrator\Downloads\TEST>git switch feature
+fatal: invalid reference: feature
+
+C:\Users\Administrator\Downloads\TEST>git switch featrue
+Switched to branch 'featrue'
+
+C:\Users\Administrator\Downloads\TEST>git merge
+fatal: No remote for the current branch.
+
+C:\Users\Administrator\Downloads\TEST>git merge master
+Updating 6d5768d..49f002c
+Fast-forward
+ aaa.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+C:\Users\Administrator\Downloads\TEST>git log --oneline
+49f002c (HEAD -> featrue, master, dev) Merge branch 'featrue' into dev
+6d5768d V0.4 by featrue
+81f716e V0.4 by dev
+29cb39f V0.3
+d81fcb2 V0.0
+
+C:\Users\Administrator\Downloads\TEST>

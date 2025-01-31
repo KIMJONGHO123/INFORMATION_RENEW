@@ -1,0 +1,166 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.4 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.4">
+  <diagram name="페이지-1" id="w_5Frhx8kl_-DsOlgKxV">
+    <mxGraphModel dx="989" dy="582" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-31" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="600" width="360" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-26" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="360" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-20" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="115" width="310" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-18" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="120" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-2" value="애완용품 구매" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="10" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-3" value="비회원&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%EC%95%A0%EC%99%84%EC%9A%A9%ED%92%88%20%EA%B5%AC%EB%A7%A4%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22100%22%20y%3D%22110%22%20width%3D%22130%22%20height%3D%2250%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="525" y="65" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-4" value="판매자" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="310" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-5" value="관리자" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="550" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-6" value="회원" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-7" value="[R]회원은 애완용품 전체조회를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="120" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-8" value="[R]회원은 애완용품 키워드 조회를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="55" y="147" width="270" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-9" value="C : Create&lt;div&gt;R : Read&lt;/div&gt;&lt;div&gt;U : Update&lt;/div&gt;&lt;div&gt;D : Delete&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="134" width="100" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-10" value="[R]회원은 애완용품 전체조회를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="115" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-11" value="[R]회원은 애완용품 키워드 조회를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="450" y="174" width="270" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-12" value="[C]회원은 애완용품 구매를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="174" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-17" value="애완용품 구매 사이트&lt;div&gt;인증(로그인/로그아웃/회원가입)&lt;/div&gt;&lt;div&gt;공지사항&lt;/div&gt;&lt;div&gt;애완용품구매&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="20" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-22" value="[C]판매자는 애완용품을 등록할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="15" y="360" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-23" value="[U]판매자는 애완용품 정보를 수정할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="15" y="390" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-24" value="[R]판매&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%5BU%5D%ED%8C%90%EB%A7%A4%EC%9E%90%EB%8A%94%20%EC%95%A0%EC%99%84%EC%9A%A9%ED%92%88%20%EC%A0%95%EB%B3%B4%EB%A5%BC%20%EC%88%98%EC%A0%95%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%2215%22%20y%3D%22390%22%20width%3D%22350%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;자는 등록한 애완용품 정보를 조회할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="15" y="420" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-25" value="[D]판매&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%5BU%5D%ED%8C%90%EB%A7%A4%EC%9E%90%EB%8A%94%20%EC%95%A0%EC%99%84%EC%9A%A9%ED%92%88%20%EC%A0%95%EB%B3%B4%EB%A5%BC%20%EC%88%98%EC%A0%95%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%2215%22%20y%3D%22390%22%20width%3D%22350%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;자는 등록한 애완용품 정보를 삭제할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="450" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-27" value="[R]관리자는 등록된 상품목록을 조회(전체, 키워드)할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="610" width="375" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-28" value="[C]관리자가 판매자를 대신해 상품을 등록할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="17.5" y="640" width="375" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-29" value="[D]관리자는 판매자가 등록한 상품을 수정할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="15" y="670" width="375" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-30" value="[D]관리자는 판매자가 등록한 상품을 삭제할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="15" y="700" width="375" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-34" value="애완용품 구매 서비스" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="830" width="348.75" height="690" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-37" value="[R]애완용품 전체조회를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="43.75" y="35" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-38" value="[R]애완용품 키워드 조회를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="28.75" y="62" width="270" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-39" value="[C]애완용품 구매를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="43.75" y="89" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-41" value="[C]애완용품을 등록할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="-16.25" y="280" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-42" value="[U]애완용품 정보를 수정할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="-16.25" y="310" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-43" value="[R]애완용품 정보를 조회할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="-16.25" y="340" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-44" value="[D]애완용품&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%5BU%5D%ED%8C%90%EB%A7%A4%EC%9E%90%EB%8A%94%20%EC%95%A0%EC%99%84%EC%9A%A9%ED%92%88%20%EC%A0%95%EB%B3%B4%EB%A5%BC%20%EC%88%98%EC%A0%95%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%2215%22%20y%3D%22390%22%20width%3D%22350%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphM&lt;/span&gt;&amp;nbsp;정보를 삭제할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="-11.25" y="370" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-46" value="[R]애완용품 키워드 조회를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="20" y="210" width="270" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-45" value="[R]애완용품 전체조회를 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="25" y="180" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-47" value="[R]관리자는 등록된 상품목록을 조회(전체, 키워드)할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="-10.62" y="450" width="375" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-48" value="[C]관리자가 판매자를 대신해 상품을 등록할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="-13.12" y="480" width="375" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-49" value="[D]관리자는 판매자가 등록한 상품을 수정할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="-15.62" y="510" width="375" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-50" value="[D]관리자는 판매자가 등록한 상품을 삭제할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="-15.62" y="540" width="375" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-51" value="[D]애완용품 구매 취소 할 수 있다.." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="fQfQg7RxlyLOv3PlZWMU-34">
+          <mxGeometry x="33.75" y="120" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-36" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="800" as="sourcePoint" />
+            <mxPoint x="850" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-52" value="[D]애완용품 구매 취소 할 수 있다.." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="200" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-53" value="인증서비스" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="450" y="320" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-54" value="회원은 로그인 할 수 있다." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="360" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-55" value="회원은 로그아웃 할 수 있다.&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%ED%9A%8C%EC%9B%90%EC%9D%80%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22470%22%20y%3D%22350%22%20width%3D%22260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="390" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-56" value="비회원은 로그아웃 할 수 있다.&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%ED%9A%8C%EC%9B%90%EC%9D%80%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22470%22%20y%3D%22350%22%20width%3D%22260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="760" y="360" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-57" value="회원은 회원탈퇴 할 수 있다.&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%ED%9A%8C%EC%9B%90%EC%9D%80%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22470%22%20y%3D%22350%22%20width%3D%22260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="420" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-58" value="회원은 개인정보 조회 할 수 있다.&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%ED%9A%8C%EC%9B%90%EC%9D%80%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22470%22%20y%3D%22350%22%20width%3D%22260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="450" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-59" value="회원은 개인정보 수정 할 수 있다.&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%ED%9A%8C%EC%9B%90%EC%9D%80%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22470%22%20y%3D%22350%22%20width%3D%22260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="480" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-60" value="회원은 판매자 계정 전환 할 수 있다.&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%ED%9A%8C%EC%9B%90%EC%9D%80%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22470%22%20y%3D%22350%22%20width%3D%22260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="510" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-61" value="회원은 판매자 계정에서 일반 계정으로 계정 전환 수 있다.&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%ED%9A%8C%EC%9B%90%EC%9D%80%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22470%22%20y%3D%22350%22%20width%3D%22260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="540" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fQfQg7RxlyLOv3PlZWMU-62" value="[U]회원은 구매한 구매용품에 대한&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="224" width="260" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

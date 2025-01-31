@@ -1,0 +1,61 @@
+Routing Protocol
+Route : 경로
+Router : 경로 안내장치
+Routing : 경로 안내 작업
+Protocol : 통신위한 프로그램.
+
+정적 
+static
+default
+
+동적 : 전체 네크워크 정보를 입력하고 최적의 경로를 안내해준다.
+
+
+AS
+	IGP(Interior Gateway Protocol) 	- DISTANCE VECTOR : RIPV2
+							거리가 짧은 거를 선택 
+							거리를 재는 단위가 HOOP
+							루핑이 발생하면 HOPCOUNTING을 제한.
+
+							-LINK_STATE : OSPF
+	
+
+	EGP(Exteriro Gateway Protocol) : BGP
+
+
+AS(Autonomous System) : 자치 시스템 (관리자에 의해 관리되는 라우터의 집합/집단)
+
+
+AS로 구역이 나눠져 있고 ASBR로 다른 구역과 통신할 수있다. ex)KT가 LGu+와 통신하는것 처럼.
+ASBR은 일종의 GATEWAY이다.
+
+
+Distance Vector : RIpv2
+HOP(장치단위)
+전체네트워크 학습 -> 최적경로 산출
+
+
+HOP COUNTING을 제한시킨다.
+
+
+
+
+
+패킷트레이서
+RIP칸에서 자기꺼만 입력하면 된다.
+
+static은 관리자가 직접 방향 넣는거
+
+
+
+
+
+
+
+
+
+
+
+
+
+

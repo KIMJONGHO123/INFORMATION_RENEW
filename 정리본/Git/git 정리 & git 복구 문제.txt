@@ -1,0 +1,89 @@
+v 0.0.0
+ major miner 리니지 버전
+
+
+git config --global
+
+git init    :  초기파일 생성
+git add   :   SA 에 WD 변경사항 저장
+git commit -m    :   COMMIT 시점 지정(버전기록)
+git reset    :   이전 버전으로 돌아가기
+
+
+WD (Working Directory)   SA(Staging Area)
+
+hard  : WD(x) SA(X) Head (이동)
+
+soft :  WD(ㅇ) SA(ㅇ) Head (이동) 제일 안전함
+ 
+mixed  : WD(ㅇ) SA(X) Head (이동)
+
+
+reset soft -> head만 옮기는 거임 -- 변경된 내용은 없음 ,내가 원하는 커밋시점으로 돌아온거임
+워킹디렉토리  그대로. 스테이지 에어리어 그대로. 헤드 옮겨짐
+reset mixed ->헤더의 위치 옮기고 
+워킹디렉토리  그대로. 스테이지 에어리어 빠짐. 헤드 옮겨짐
+reset hard ->  헤더의 위치도 옮기고 그 전에 작업했던것 다 삭제함
+
+
+
+0 새폴더에서 git init 명령어 사용
+1 aaa.txt 파일을 추가하고 내용입력(아무거나) 
+2 SA 에 추가후 Commit(message V0.0)
+2 bbb.txt 파일을 추가하고 내용입력(아무거나) 
+3 SA 에 추가후 Commit(message V0.1)
+4 ccc.txt 파일을 추가하고 내용입력(아무거나) 
+5 SA 에 추가후 Commit(message V0.2)
+
+6 V0.0 으로 --hard 옵션 이동 (확인 - WD/SA/HEAD)
+7. V0.2 으로 복귀 (reflog)
+
+8. V0.1 으로 --soft 옵션 이동 (확인 -WD/SA/HEAD)
+9. V0.2 으로 복귀 (reflog)
+
+10 V0.0 으로 --mixed 옵션 이동 (확인 -WD/SA/HEAD)
+
+
+
+정답
+
+0 새폴더에서 git init 명령어 사용
+git init
+
+1 aaa.txt 파일을 추가하고 내용입력(아무거나) 
+echo "aaa" > aaa.txt 
+
+2 SA 에 추가후 Commit(message V0.0)
+git add *
+git commit -m "V0.0"
+
+2 bbb.txt 파일을 추가하고 내용입력(아무거나)
+echo "bbb" > bbb.txt  
+3 SA 에 추가후 Commit(message V0.1)
+git add *
+git commit -m "V0.1"
+
+4 ccc.txt 파일을 추가하고 내용입력(아무거나) 
+echo "ccc" > ccc.txt 
+5 SA 에 추가후 Commit(message V0.2)
+git add *
+git commit -m "V0.2"
+
+6 V0.0 으로 --hard 옵션 이동(확인 -WD/SA/HEAD)
+git log --oneline
+git reset --hard dac9f19
+
+7 V0.2 으로 복귀(reflog)
+git reset --hard d051936
+
+8 V0.1 으로 --soft 옵션 이동(확인 -WD/SA/HEAD)
+git log --oneline
+git reset --soft 72cb093
+
+9 V0.2 으로 복귀(reflog)
+git reset --hard d051936             // 그냥 전으로 (완전)복구할려고 hard했다.
+
+10 V0.0 으로 --mixed 옵션 이동(확인 -WD/SA/HEAD)
+git log --oneline
+git reset --mixed dac9f19
+합칠 branch를 merge

@@ -1,0 +1,25 @@
+리눅스 VMWARE
+
+Bridged : 외부 인터넷 통신가능
+host-only :  가상머신(VMWARE) 안에서만 통신 가능
+NAT : 안에서 밖으로는 통신가능 BUT 밖에서 안으로는 통신 X
+
+보통 원격으로 접속 SSH
+
+window : administrator
+linux : root -> 권한 more
+
+~ 틸드 : 작업중인 Home directory
+
+$ 일반 유저
+# 관리자권한
+
+리눅스 런레벨 : 명령어 =init
+
+
+이동 하는 방법 : 
+1. 절대경로
+
+
+2. 상대경로
+
