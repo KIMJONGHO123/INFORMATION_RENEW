@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        width: 300px;
+        height: 300px;
+        background-color: orange;
+        /* overflow: hidden; 부모크기를 넘지 못하게 한다. */
+        /* overflow: scroll; */
+        /* overflow-x: scroll; */
+        /* overflow: visible; 디폴트 값 */
+        /* overflow: auto; 어디가 넘었는지 자동으로 판단 */
+      }
+      .child {
+        width: 450px;
+        height: 150px;
+        background-color: royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </body>
+</html>
