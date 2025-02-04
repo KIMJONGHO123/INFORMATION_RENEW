@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 1px solid;
+      }
+      .ancestor {
+        width: 750px;
+        height: 750px;
+        background-color: aqua;
+        border: 1px solid;
+        margin-top: 50px;
+        position: relative;
+      }
+      .parent {
+        width: 500px;
+        height: 500px;
+        background-color: royalblue;
+        margin: 100px;
+        /* position: relative; */
+      }
+      .son {
+        width: 50px;
+        height: 50px;
+        background-color: orange;
+      }
+      .son:nth-child(1) {
+        position: absolute; /*absolute는 상위태그를 기준으로 position이 잡혀있는 곳으로 올라간다. 아무것도 안 잡혀있으면 viewport로 이동한다.*/
+        left: 0px;
+        top: 0px;
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ancestor">
+      <div class="parent">
+        <div class="son">1</div>
+        <div class="son">2</div>
+        <div class="son">3</div>
+        <div class="son">4</div>
+      </div>
+    </div>
+  </body>
+</html>
