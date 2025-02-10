@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(typeof "HELLO WORLD");
+      console.log(typeof "HELLO WORLD");
+      console.log(typeof (10 + 20 + 30));
+      console.log(typeof `10+20+30`);
+      console.log(typeof true);
+      //   true : 참
+      //   false : 거짓
+      //   기계한테 물어보고 얻는 답.
+
+      console.log(typeof null);
+      //   null : object(객체로 취급), 아무것도 쓰지 않겠다는 공간을 쓰고 있다.
+      console.log(typeof undefined);
+      //   undefined : 공간을 쓰고 있지 않다.
+
+      let test;
+      console.log(typeof test);
+      let test2 = null;
+      console.log(typeof test2);
+
+      if (test2) {
+        /*null 이 false니까 else에 console이 출력 된다. but null은 defined 되어있어서 에러는 안난다.*/
+        console.log("test2 True");
+      } else {
+        console.log("test2 False");
+      }
+
+      /* 원래는 에러가 나는데 여기서는 에러가 안 난다. 변수가 선언이 되어있고 그 값이 undefined인 경우에는 에러가 안난다고 한다(여기서는).*/
+      if (test) {
+        console.log("test True");
+      } else {
+        console.log("test False");
+      }
+
+      //   undefined : 자체 자료형(선언)
+      //   조건식 사용되게 되면 false
+
+      //   null : object 형
+      //   조건식 사용되게 되면 false
+    </script>
+  </body>
+</html>

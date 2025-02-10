@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //number
+      document.write(typeof 10 + "<br/>");
+      document.write(typeof 10.5 + "<br/>");
+
+      document.write("<hr>");
+
+      //string
+      document.write(typeof "HELLWO WORLD" + "<br/>"); /* 큰따옴표*/
+      document.write(typeof "HELLWO WORLD" + "<br/>"); /* 작음따옴표*/
+      document.write(typeof `HELLWO WORLD` + "<br/>"); /* 백틱*/
+
+      document.write("<hr>");
+
+      //Object : { key : value, key : value}
+      document.write(typeof { name: "홍길동", age: 55 } + "<br/>");
+      document.write(
+        typeof JSON.stringify({ name: "홍길동", age: 55 }) + "<br/>"
+      ); /*JSON.stringify : JSON 타입으로 만들어주는 함수 
+           {"key" : "value"} 이 형태로 만들어준다.
+           JSON 타입에는 key에도 ""가 있어야한다.*/
+
+      document.write("<hr>");
+
+      //null
+      let value1 = null; //변수 초기화(공간형성 + 기본값 삽입(개발자가 의도한 값 null 삽입))-조건식(false)
+      document.write(typeof value1 + "<br/>");
+
+      //undefined
+      let value2; //변수 선언(공간형성 + 기본값은 생략(undefined 자료형의 값 저장))-조건식(false)
+      document.write(typeof value2 + "<br/>");
+
+      //boolean
+      document.write(typeof true + "<br/>");
+    </script>
+  </body>
+</html>

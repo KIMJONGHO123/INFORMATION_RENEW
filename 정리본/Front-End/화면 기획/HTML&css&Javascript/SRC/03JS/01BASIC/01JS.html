@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 3000px;
+      }
+      .test {
+        position: fixed;
+        width: 100%;
+        bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="alert('helloworld')">BTN1</button>
+    <button onClick="alert(10+20)">BTN1</button>
+    <button
+      onclick="alert('helloworldhell\noworldhelloworld\nhelloworldhelloworld')"
+    >
+      BTN1
+    </button>
+    <hr />
+    <div class="test">
+      <a href="javascript:void(0)">TEST1</a>
+      <a href="javascript:alert(10+20)">TEST2</a>
+      <a href="javascript:console.log(10+20)">TEST3</a>
+      <a href="javascript:console.log(obj)">TEST4</a>
+    </div>
+
+    <script>
+      const obj = { name: "aaa", age: "55" };
+    </script>
+  </body>
+</html>
