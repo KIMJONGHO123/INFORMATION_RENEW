@@ -1,0 +1,14 @@
+const arr = [1, 2, 3, 4, 5];
+const result = arr.reduce((acc, cur, idx) => { return acc += cur; }, 0);
+console.log(result);  // 15
+
+
+뒤에 0이면 acc의 초기값이 0이 되고, 배열의 첫 번째 요소부터
+acc에 자신의 값인 cur을 더해간다.
+
+
+const arr = [1, 2, 3, 4, 5];
+const result = arr.reduce((acc, cur, idx) => { return acc += cur; }, 10);
+console.log(result);  // 25
+
+뒤에가 10이면 acc의 초기값은 10이고 배열의 첫 번째 요소부터 acc에 자신의 값인 cur을 더해간다.
