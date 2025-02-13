@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 스코프(SCOPE)란
+      // 변수나 함수가 접근할 수 있는 범위
+      // 전역스코프(Global Scope)와 지역 스코프(Local Scope)로 구별
+
+      // 전역스코프 : 모든 지역에서 접근이 가능
+
+      // 지역스코프 : 특정 영역( {} )에서만 접근 가능
+      // - 함수 스코프 : 함수 내에서 선언된 변수는 해당 함수내에서만 접근 가능 (var)
+      // - 블록스코프 : 블록 내부에서만 접근 가능 (ex : if, for, while, object ...) (let, const)
+      // - 렉시컬(Lexical) 스코프 : 변수를 선언한 위치에 따라서 스코프가 결정
+
+      // 전역스코프
+
+      //   var global = "전역변수 확인!";
+      //   function a() {
+      //     console.log("a function()", global);
+      //   }
+      //   a();
+      //   if (true) {
+      //     console.log("if", global);
+      //   }
+
+      //   console.log({ key1: global });
+
+      // 함수 스코프
+
+      // f1();
+      // f2();
+      // function f1() {
+      //   var f1_v = "f1_val";
+      //   console.log(f1_v);
+      // }
+
+      // function f2() {
+      //   var f2_v = "f2_val";
+      //   console.log(f2_v);
+      // }
+
+      // console.log(f1_v);
+      // console.log(f2_v);
+
+      // 블록스코프 내의 지역변수
+
+      // if (true) {
+      //   let value1 = "블럭 내에 사용되는 지역 변수";
+      //   console.log(value1);
+      //   var value2 = "블럭 내에 사용한 var 변수";
+      // }
+      // console.log(value2);
+      // console.log(value1);
+
+      // 렉시컬 스코프 (화살표 함수) 확인 -this
+
+      // const f1 = () => {
+      //   console.log("f1...", this); // 상위 스코프(window객체)의 this를 가져옴
+      // };
+      // f1();
+
+      // 렉시컬 스코프(Object내의 기능에서의) 확인 - this
+      // window.age = 20;
+      const person = {
+        name: "홍길동",
+        age: 15,
+        addr: "대구",
+        getName: function () {
+          console.log(this.name);
+        },
+        getAge: () => {
+          console.log(this.age);
+        },
+      };
+      console.log(person);
+      person.getName();
+      person.getAge();
+    </script>
+  </body>
+</html>

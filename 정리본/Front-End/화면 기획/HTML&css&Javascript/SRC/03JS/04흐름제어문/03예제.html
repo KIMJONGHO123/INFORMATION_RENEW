@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      nav {
+        height: 80px;
+        border: 1px solid;
+      }
+      nav > .main-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      nav > .main-menu > li {
+        background-color: orange;
+        color: white;
+        text-align: center;
+        border: 1px solid;
+        min-width: 120px;
+        max-width: 150px;
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+      }
+
+      nav > .main-menu > li > a {
+        display: block;
+      }
+      nav > .main-menu > li > .sub-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: royalblue;
+        display: none;
+      }
+      nav > .main-menu > li > .sub-menu > li {
+      }
+      nav > .main-menu > li > .sub-menu > li > a {
+      }
+
+      nav > .main-menu > li:hover > .sub-menu {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="top-header"></div>
+        <nav>
+          <ul class="main-menu"></ul>
+        </nav>
+      </header>
+      <footer>
+        <form name="navForm" onsubmit="return false">
+          <input type="text" name="menuname" />
+          <a href="javascript:void(0)" class="nav-btn">NAV-메인메뉴 만들기</a>
+        </form>
+        <form name="modeForm" onsubmit="return false">
+          <select name="setViewMode" id="">
+            <option value="mobile">모바일</option>
+            <option value="desktop">데스크탑</option>
+          </select>
+          <a href="javascript:void(0)" class="view-mode-btn"
+            >가로형/세로형반환</a
+          >
+        </form>
+        <form name="submenuForm" onsubmit="return false">
+          <input
+            type="text"
+            name="mainmenu"
+            placeholder="메인메뉴명을 입력하세요"
+          />
+          <input
+            type="text"
+            name="subname"
+            placeholder="서브 메뉴명을 입력하세요(띄어쓰기)"
+          />
+          <a href="javascript:void(0) " class="sub-menu-btn"
+            >NAV-서브메뉴 만들기</a
+          >
+        </form>
+      </footer>
+    </div>
+
+    <script>
+      const mainMenuEl = document.querySelector(".main-menu");
+      //   const settings = prompt("메뉴를 입력하세요 띄어쓰기로 구분합니다.");
+      const navBtn = document.querySelector(".nav-btn");
+      navBtn.addEventListener("click", () => {
+        const form = document.navForm;
+        const settings = form.menuname.value;
+        const menu_arr = settings.split(" "); //반환값 배열?
+        console.log(menu_arr);
+        //기존 자식 노드 제거
+
+        while (mainMenuEl.firstChild) {
+          mainMenuEl.removeChild(mainMenuEl.firstChild);
+        }
+
+        //새로운 자식 노드 (li)제거
+        // for (let i = 0; i < menu_arr.length; i++) {
+        //   // 요소생성
+        //   const liEl = document.createElement("li");
+        //   liEl.innerHTML = menu_arr[i];
+        //   mainMenuEl.appendChild(liEl);
+        // }
+
+        //배열 함수르 이용(forEach)해서 자식 노드(li) 추가
+        menu_arr.forEach((str) => {
+          const liEl = document.createElement("li");
+          const ael = document.createElement("a");
+          ael.setAttribute("href", "javascript:void(0)");
+          ael.innerHTML = str;
+          // li - a(자식) 추가
+          liEl.appendChild(ael);
+          mainMenuEl.appendChild(liEl);
+        });
+      });
+
+      // [중요]배열 함수 / 노드CRUD / 이벤트 / 동기&비동기 처리 => 이것만 완벽하게 해도 good
+
+      //  View Mode BTN
+      const ViewModeBtnEl = document.querySelector(".view-mode-btn");
+      ViewModeBtnEl.addEventListener("click", () => {
+        const form = document.modeForm;
+        const modeOption = form.setViewMode.value;
+        console.log("modeOption", modeOption);
+
+        const wrapperel = document.querySelector(".wrapper");
+        if (modeOption === "mobile") {
+          // 모바일 화면
+          wrapperel.style.width = "380px";
+          wrapperel.style.margin = "0 auto";
+        } else if (modeOption === "desktop") {
+          // 데스크탑 화면
+          wrapperel.style.width = "100%";
+          wrapperel.style.margin = "0 auto";
+        } else {
+        }
+      });
+
+      // 서브 메뉴 만들기
+      const subMenuBtnEl = document.querySelector(".sub-menu-btn");
+      subMenuBtnEl.addEventListener("click", () => {
+        const form = document.submenuForm;
+        const mainname = form.mainmenu.value;
+        const subname = form.subname.value;
+        console.log(mainname, subname);
+
+        const ulel = document.createElement("ul");
+
+        //반복생성예정
+        const liel = document.createElement("li");
+
+        // 메인메뉴 찾기
+        const mainmenuel = document.querySelectorAll(".main-menu>li");
+        console.log(mainmenuel);
+        // const findel = mainmenuel.find((el) => {
+        //   return el.textContent.trim() === mainname;
+        // });
+        // console.log(findel);
+        mainmenuel.forEach((item) => {
+          if (item.textContent.trim() === mainname) {
+            console.log("find", item);
+            const liel1 = item.parentNode;
+            console.log(liel1);
+
+            //  서브메뉴 만들기
+            const submenuarr = subname.split(" ");
+            // ul 생성, li 생성, a 생성 - 연결
+            const ulel = document.createElement("ul");
+            ulel.classList.add("submenu");
+            submenuarr.forEach((str) => {
+              const newli = document.createElement("li");
+              const newa = document.createElement("a");
+              newa.setAttribute("href", "javascript:void(0)");
+              newa.innerHTML = str;
+
+              newli.appendChild(newa);
+              ulel.appendChild(newli);
+            });
+            item.appendChild(ulel);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
