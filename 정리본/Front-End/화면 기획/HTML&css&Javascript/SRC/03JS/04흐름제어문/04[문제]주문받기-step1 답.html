@@ -156,18 +156,18 @@
       // step-1 - 상호명 선택하기
       // (RenewaledMenu안의 모든 상호명을 select이하 option으로 넣어보세요 - forEach사용해서 - )
       //---------------------------------------
-      console.log("RenewaledMenu", RenewaledMenu);
+      // console.log("RenewaledMenu", RenewaledMenu);
       //--------------------
       // 예시
       //--------------------
       const selectRestorant = document.querySelector(".select-restorant"); // SelectNode탐색
       RenewaledMenu.forEach((item) => {
-        console.log(item);
+        // console.log(item);
         const opNode = document.createElement("option"); // 새노드생성
         opNode.innerHTML = item.BZ_NM; //option 내의 content에 내용저장(식당명)
         selectRestorant.appendChild(opNode); //selectNode의 자식으로 붙이기
       });
-      console.log(selectRestorant);
+      // console.log(selectRestorant);
 
       //   내가 하던거
       // 가게명 선택 후 검색 클릭하면 메뉴 출력
@@ -187,22 +187,37 @@
       //     });
 
       //
+      // 강사님이 하신거
+      // const showMenuBtn = document.querySelector(".show-menu-btn");
+      // showMenuBtn.addEventListener("click", () => {
+      //   const form = document.form1;
+      //   const selectedRestaurant = form.selectRestorant.value;
 
-      const showMenuBtn = document.querySelector(".show-menu-btn");
-      showMenuBtn.addEventListener("click", () => {
-        const form = document.form1;
-        const selectedRestaurant = form.selectRestorant.value;
+      //   const restaurantEl = RenewaledMenu.find((item) => {
+      //     return item.BZ_NM === selectedRestaurant;
+      //   });
+      //   console.log(restaurantEl);
 
-        const restaurantEl = RenewaledMenu.find((item) => {
-          return item.BZ_NM === selectedRestaurant;
+      //   const restaurantMenuBlockEl = document.querySelector(
+      //     ".restorant-menu-block"
+      //   );
+
+      //   restaurantMenuBlockEl.innerHTML = restaurantEl.MNU;
+      // });
+
+      // 내가 집에서 한거거
+      const click = document.querySelector(".show-menu-btn");
+      click.addEventListener("click", () => {
+        const store_name = document.querySelector(".select-restorant");
+        const same_name = RenewaledMenu.find((item) => {
+          return item.BZ_NM === store_name.value;
         });
-        console.log(restaurantEl);
+        console.log(same_name);
 
-        const restaurantMenuBlockEl = document.querySelector(
+        const restorant_menu_block = document.querySelector(
           ".restorant-menu-block"
         );
-
-        restaurantMenuBlockEl.innerHTML = restaurantEl.MNU;
+        restorant_menu_block.innerHTML = same_name.MNU;
       });
 
       // step-2
