@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="height: 5000px; width: 8000px">
+    <script>
+      //window.scrollY : viewPort를 기준으로 가장 위쪽 부분의 새로축 위치
+      document.addEventListener("scroll", () => {
+        // 세로 축 확인
+        // console.log("scrollY...", window.scrollY);
+        // console.log("scrollY", document.documentElement.scrollTop);
+        // console.log("scrollY", document.documentElement.scrollHeight);
+
+        // 가로 축 확인
+
+        // console.log("scrollX", window.scrollX);
+        console.log("scrollX", document.documentElement.scrollWidth);
+      });
+    </script>
+  </body>
+</html>

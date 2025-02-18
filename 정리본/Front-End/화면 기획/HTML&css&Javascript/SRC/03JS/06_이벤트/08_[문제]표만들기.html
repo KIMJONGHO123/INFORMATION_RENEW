@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid gray;
+      }
+      input {
+        width: 90%;
+        height: 100%;
+        outline: none;
+        border: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="rownum" placeholder="행의개수입력" style="width: 200px" />
+    <input id="colnum" placeholder="열의개수입력" style="width: 200px" />
+    <button onclick="makemap()">생성</button>
+
+    <hr />
+    <table id="tbl"></table>
+
+    <script>
+      // state
+      let curX = 0;
+      let curY = 0;
+      let selectedNode = null;
+
+      const selectedStyle = (xPos, yPos) => {
+        if (selectedNode) {
+          // 이전에 선택된 노드가 없는경우
+          deSelectedStyle(selectedNode);
+        }
+        //이전에 선택된 노드가 있는경우
+
+        selectedNode = document.getElementById(`${xPos}|${yPos}`);
+        selectedNode.style.backgroundColor = "gray";
+      };
+
+      const deSelectedStyle = (node) => {
+        node.style.backgroundColor = "white";
+      };
+      function makemap(e) {
+        const rownumber = document.querySelector("#rownum");
+        const columnumber = document.querySelector("#colnum");
+        const rownumNumber = rownumber.value;
+        const columnNumber = columnumber.value;
+
+        const table = document.querySelector("#tbl");
+        // let count = 1;
+        table.innerHTML = "";
+        for (let i = 0; i < rownumNumber; i++) {
+          const tableerow = document.createElement("tr");
+          for (let j = 0; j < columnNumber; j++) {
+            const tableecul = document.createElement("td");
+            tableecul.addEventListener("click", (e) => {
+              console.log("클릭 node", tableecul);
+              const id = tableecul.getAttribute("id");
+              const xPos = id.split("|")[0];
+              const yPos = id.split("|")[1];
+
+              selectedStyle(xPos, yPos);
+            });
+            tableecul.innerHTML = `행 : ${j}, 열: ${i}`;
+            tableecul.setAttribute("id", `${j}|${i}`);
+
+            tableecul.style.textAlign = "center";
+            tableerow.appendChild(tableecul);
+          }
+          table.appendChild(tableerow);
+        }
+
+        //기본 cur 위치
+        curX = Math.ceil(columnNumber / 2 - 1);
+        curY = Math.ceil(rownumNumber / 2 - 1);
+
+        // 초기 선택된 위치 스타일링
+        selectedStyle(curX, curY);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .ball {
+        border: 1px solid;
+        min-width: 50px;
+        min-height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        transition: 0.8s;
+      }
+      .ball-1280px {
+        width: 300px;
+        height: 300px;
+        border: 5px solid;
+        background-color: green;
+      }
+      .ball-768px {
+        width: 150px;
+        height: 150px;
+        border: 3px solid;
+        background-color: orange;
+      }
+      .ball-480px {
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+        background-color: royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball ball-1280px"></div>
+
+    <script>
+      //--------------------------
+      // Load 이벤트
+      //--------------------------
+
+      // DOMContentLoaded : 최초 Document 로드시 1회 동작(HTML이 전부 파싱이 된 이후 DOM객체가 완성되고 나서 실행 ,css,외부파일 로드여부와는 관계없다.)
+      // load : 최초 Document 로드시 1회 동작(모든 리소스가 완전히 로드된 이후 실행)
+
+      window.addEventListener("DOMContentLoaded", () => {
+        // 반응 처리함수
+        const flexibleBall = (width, ballel) => {
+          if (width < 768) {
+            // 모바일 처리
+            ballel.className = "ball ball-480px";
+          } else if (width < 1280) {
+            // 테블릿 처리
+            ballel.className = "ball ball-768px";
+          } else {
+            // 데스크탑 처리
+            ballel.className = "ball ball-1280px";
+          }
+        };
+
+        const width = window.innerWidth;
+        const ballel = document.querySelector(".ball");
+        flexibleBall(width, ballel);
+
+        window.addEventListener("resize", () => {
+          const width = window.innerWidth;
+          const ballel = document.querySelector(".ball");
+          flexibleBall(width, ballel);
+        });
+      });
+    </script>
+  </body>
+</html>
