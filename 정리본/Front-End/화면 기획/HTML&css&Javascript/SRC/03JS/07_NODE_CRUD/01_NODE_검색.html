@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>LIST_1</li>
+      <li id="li-2">LIST_2</li>
+      <li class="item">LIST_3</li>
+      <li>LIST_4</li>
+      <li id="li-5">LIST_5</li>
+      <li>LIST_6</li>
+      <li class="item">LIST_7</li>
+      <li class="item">LIST_8</li>
+    </ul>
+    <script>
+      // getElementById('id명') : id만 받기떄문에 # 필요없다;
+      const li2el = document.getElementById("li-2");
+      li2el.style.backgroundColor = "orange";
+      li2el.style.fontSize = "2rem";
+
+      // querySelector('선택자') : 제일 첫번째로 찾은 요소만 가져온다.;
+      const itemel = document.querySelector(".item");
+      itemel.style.color = "green";
+      itemel.style.fontWeight = "900";
+
+      // querySelectorAll("선택자") : 해당 선택자 요소 전부 가져온다;
+      const itemels = document.querySelectorAll(".item"); // 반환값 : 유사 배열
+      itemels.forEach((item) => {
+        item.style.border = "2px solid blue";
+        item.style.margin = "20px 0";
+      });
+
+      // getElementsByTagNanem('선택자')
+      const liels = document.getElementsByTagName("li");
+
+      // 배열x 따라서 forEach 사용불가
+      // liels.forEach((item) => {
+      //   console.log(item);
+      // });
+
+      // 유사배열 -> 배열 (Array.from())
+      const liels2 = Array.from(liels);
+      console.log(liels2);
+      liels2.forEach((item) => {
+        console.log(item);
+      });
+    </script>
+  </body>
+</html>
