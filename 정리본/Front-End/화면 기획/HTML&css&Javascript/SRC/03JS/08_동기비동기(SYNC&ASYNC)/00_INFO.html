@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 메인스레드에서의 동작 확인
+      for (let i = 0; i < 10; i++) {
+        console.log("main for...1", i);
+      }
+      console.log("for1이 끝남...");
+
+      // 비동기 처리(스테드를 분한 처리 - (JS에서는 실제로는 분할되지 않음))
+      setTimeout(() => {
+        for (let i = 0; i < 10; i++) {
+          console.log("Async - main for...2", i);
+        }
+        console.log("for2가 끝남");
+      }, 10);
+
+      for (let i = 0; i < 10; i++) {
+        console.log("main for...3", i);
+      }
+      console.log("for3이 끝남");
+    </script>
+  </body>
+</html>

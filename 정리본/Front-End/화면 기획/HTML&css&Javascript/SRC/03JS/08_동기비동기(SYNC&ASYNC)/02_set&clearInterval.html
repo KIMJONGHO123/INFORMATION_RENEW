@@ -7,19 +7,20 @@
   </head>
   <body>
     <div class="d1"></div>
-    <button onclick="start()">예약실행</button>
-    <button onclick="stop()">예약취소</button>
+    <button onclick="start()">반복실행</button>
+    <button onclick="stop()">반복취소</button>
 
     <script>
       let id = null;
+      let count = 0;
       const start = () => {
         const d1El = document.querySelector(".d1");
 
         // setTimeout() 함수는 타임아웃 아이디 라고 불리는 숫자를 반환
         // 타임아웃 아이디는 내부적으로 생성되는 타이머 객체를 가리킨다.
-        id = setTimeout(() => {
-          d1El.innerHTML = "SetTimeOut Result...";
-        }, 3000);
+        id = setInterval(() => {
+          d1El.innerHTML = ++count;
+        }, 1000);
 
         console.log("id", id);
       };
