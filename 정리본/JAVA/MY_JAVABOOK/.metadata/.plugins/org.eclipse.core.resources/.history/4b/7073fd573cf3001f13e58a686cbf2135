@@ -38,7 +38,7 @@ public class C04자료형 {
 		// 정수 long -8byte 정수 부호 ㅇ
 		
 		long n1 = 10000000000L;
-		long n2 = 20;  // L,l (리터럴접미사) : long 자료형 사용하여 값 저장
+		long n2 = 20;  // L,l (리터럴접미사) : long 자료형 사용하여 값
 		
 		long n3 = 100000000000;
 		long n4 = 100000000000L;

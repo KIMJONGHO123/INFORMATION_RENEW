@@ -1,0 +1,31 @@
+package Ch02;
+
+public class C04자료형 {
+
+	public static void main(String[] args) {
+		
+//		정수 int - 4 byte 정수 부호 ㅇ
+		
+		int n1 = 0b10101101; // 2진수값
+		int n2 = 173;
+		int n3 = 0255;
+		int n4 = 0xad;
+		System.out.printf("%d %d %d %d \n", n1,n2,n3,n4);
+		
+		
+//		정수 byte - 1byte 정수 부호 ㅇ
+		
+		byte n5 = (byte)-129;
+		System.out.println(n5);
+//		byte n6 = -30;
+//		byte n7 = 30;
+//		byte n8 = 127;
+////		byte n9 = 129;
+//		
+////		System.out.printf("%d\n",n9);
+//		System.out.println(0b10101101);
+//		System.out.println(Integer.toBinaryString(-129));
+
+	}
+
+}
