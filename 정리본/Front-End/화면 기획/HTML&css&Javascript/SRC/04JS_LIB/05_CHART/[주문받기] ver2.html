@@ -193,23 +193,46 @@
       //
 
       // step-2
+      const form = document.form1;
       const foam2 = document.form2;
       const store_select = document.querySelector(".select-restorant");
-      const name = document.상호명;
-      const MENU = RenewaledMenu.find((item) => {
-        return item;
-      }); //MENU ARRAY 뽑기
-      console.log(MENU.MNU);
-      store_select.addEventListener("click", () => {
-        // console.log(store_select);
-        // console.log(RenewaledMenu);
-        // console.log(RenewaledMenu);
-        foam2.상호명.value = store_select.value; // 상호명 input에 가게 이름 입력
-        const menu_name = MENU.MNU.find((item) => {
-          return item;
+      const name = foam2.상호명;
+      const menu_name_input = foam2.메뉴명;
+      const menu_price = foam2.가격;
+      //MENU ARRAY 뽑기
+      // console.log(MENU.MNU);
+      store_select.addEventListener("change", () => {
+        const option_store_name = store_select.value;
+        name.value = option_store_name; // 상호명 input에 가게 이름 입력
+
+        const compare = form.selectRestorant.value; // foam의 가게 이름
+        const menu_name = RenewaledMenu.find((item) => {
+          // 가게 이름 동일하면 해당 배열 반환
+          return item.BZ_NM === compare;
         });
-        console.log(menu_name);
-        // foam2.메뉴명.value = ;
+
+        const menuName = menu_name.MNU; // 메뉴를 변수에 저장
+        const onlyMenu = []; // 메뉴만 담을 리스트 선언
+        const onlyPrice = []; // 가격만 담을 리스트 선언
+        console.log(menuName);
+        menuName.forEach((item) => {
+          // 배열안에 배열이 있어서 forEach 2번 for문 이중반복 돌린거랑 같다.
+          console.log(item);
+          item.forEach((itm) => {
+            if (typeof itm === "string") {
+              // 메뉴만 뽑기 위한 방법
+              onlyMenu.push(itm);
+            } else {
+              // 각격만 뽑기 위한 방법
+              onlyPrice.push(itm);
+            }
+          });
+        });
+        console.log(onlyMenu);
+        menu_name_input.value = onlyMenu;
+
+        console.log(onlyPrice);
+        menu_price.value = onlyPrice;
       });
 
       //
