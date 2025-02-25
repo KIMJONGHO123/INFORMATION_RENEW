@@ -1,0 +1,41 @@
+	정수 타입 		: byte,short,int ,long
+	char 타입 	: ' ' 
+	String 타입 	: " "
+	실수 타입 		: double , float
+	논리 타입 		: boolean
+
+
+	확인 문제1
+
+	정수타입 
+	1byte : byte
+	2byte : char / short
+	4byte : int 
+	8byte : long 
+
+	실수타입
+	4byte : float
+	8byte : double
+
+	논리타입
+	1byte : boolean
+
+
+	확인문제2
+	
+	
+	맞는 코드인지 틀린 코드인지 확인 
+	byte var = 200;							( x	)
+	char var='AB';							( x )
+	char var=65;							( o )
+	long var=50000000000;					( x ) // int 범위 벗어난다.	
+	float var = 3.14						( x	) // 3.14는 double 리터널이다. 3.14f 하면 맞다.
+	double var = 100.0						( o )
+	String var = "나의직업은 "개발자" 입니다.";	( x ) // 문자열 안에 "" 사용할려면 이스케이프 사용해야 한다.
+	boolean var = 0;						( x )
+	int v2 = 1e2;							( ㅇ	) // 100.0 이고 기본적으로 double로 인식된다. 자바에서는 지수표기법은 기본적으로 double 형이다.
+	float v3 =1e2f;							( ㅇ )
+	
+	
+	
+	
