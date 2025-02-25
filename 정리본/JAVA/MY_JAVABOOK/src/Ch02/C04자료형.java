@@ -58,12 +58,12 @@ public class C04자료형 {
 		System.out.println(n2);
 		
 		// 오차 확인
-//		float num = 0.1F;
-//		for (int i = 0; i <= 1E5; i++) {
-//			num = num+0.1F;
-//			System.out.println(i);
-//		}
-//		System.out.println("num"+ num);
+		float num = 0.1F;
+		for (int i = 0; i <= 1E5; i++) {
+			num = num+0.1F;
+			System.out.println(i);
+		}
+		System.out.println("num"+ num);
 	}
 
 }
