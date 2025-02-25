@@ -10,7 +10,7 @@ public class C04자료형 {
 		int n2 = 173;
 		int n3 = 0255;
 		int n4 = 0xad;
-		System.out.printf("%d %d %d %d \n", n1,n2,n3,n4);
+		System.out.println("%d %d %d %d \n", n1,n2,n3,n4);
 				
 
 	}
