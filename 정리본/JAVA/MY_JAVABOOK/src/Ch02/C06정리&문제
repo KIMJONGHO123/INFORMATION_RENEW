@@ -28,7 +28,7 @@
 	byte var = 200;							( x	)
 	char var='AB';							( x )
 	char var=65;							( o )
-	long var=50000000000;					( x ) // int 범위 벗어난다.	
+	long var=50000000000;					( x ) // 50000000000은 기본 int 리터럴로 저장이 되는데 그 int 범위를 벗어난다.
 	float var = 3.14						( x	) // 3.14는 double 리터널이다. 3.14f 하면 맞다.
 	double var = 100.0						( o )
 	String var = "나의직업은 "개발자" 입니다.";	( x ) // 문자열 안에 "" 사용할려면 이스케이프 사용해야 한다.
