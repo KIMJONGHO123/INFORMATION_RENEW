@@ -16,7 +16,7 @@
 	실수타입
 	4byte : float
 	8byte : double
-
+  
 	논리타입
 	1byte : boolean
 
@@ -33,7 +33,7 @@
 	double var = 100.0						( o )
 	String var = "나의직업은 "개발자" 입니다.";	( x ) // 문자열 안에 "" 사용할려면 이스케이프 사용해야 한다.
 	boolean var = 0;						( x )
-	int v2 = 1e2;							( ㅇ	) // 100.0 이고 기본적으로 double로 인식된다. 자바에서는 지수표기법은 기본적으로 double 형이다.
+	int v2 = 1e2;							( x	) // 100.0 이고 기본적으로 double로 인식된다. 자바에서는 지수표기법은 기본적으로 double 형이다.
 	float v3 =1e2f;							( ㅇ )
 	
 	
