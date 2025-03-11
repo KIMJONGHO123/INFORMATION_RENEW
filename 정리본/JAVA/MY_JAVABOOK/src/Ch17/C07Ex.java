@@ -50,7 +50,7 @@ public class C07Ex {
 		//03 데이터 확인
 		//getMap이용해서 저장된 데이터 확인(출력)
 		for(String key : getMap().keySet()) {
-			Object val = C07Ex.map.get(key);
+			Object val = C07Ex.map.get(key); // val은
 			System.out.println("KEY : " + key + " val : " + (val instanceof String[] ? Arrays.toString((String[]) val) : val));
 ;
 		}
