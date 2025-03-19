@@ -58,7 +58,7 @@ public class ClientUI extends JFrame implements KeyListener{
 		try {
 			
 			//ChatServerIP로 입력 
-			client = new Socket("192.168.16.203",5555);
+			client = new Socket("192.168.2.254",5555);
 			
 			//3 수신 스레드 객체 생	성
 			ClientRecvThread recv = new ClientRecvThread(client,this);	//client : 소켓수신용
