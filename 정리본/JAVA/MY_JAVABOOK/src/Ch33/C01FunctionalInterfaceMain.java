@@ -18,5 +18,5 @@ public class C01FunctionalInterfaceMain {
 		Func1 func1_1 = System.out::println;
 		func1_1.say("HELLOWORLD");
 	}
-
+	// 함수형 인터페이스 사용하면 같은 함수에 다른 로직을 구현할 수 있다.
 }
