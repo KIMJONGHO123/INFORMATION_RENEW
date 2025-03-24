@@ -1,1 +1,1 @@
-## JAVA 공부 DIRECTORY 입니다.
+## Front-End 공부하는 DIRECTORY 입니다.
