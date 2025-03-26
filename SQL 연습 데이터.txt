@@ -335,3 +335,33 @@ CROSS JOIN (
     SELECT '일반' AS grade FROM dual UNION
     SELECT 'VIP' FROM dual
 ) g;
+
+
+
+-------------------------------------------------------------------------------------------
+SELF JOIN 데이터
+-------------------------------------------------------------------------------------------
+
+CREATE TABLE userSelfTestTbl (
+    userID      VARCHAR2(10) PRIMARY KEY,
+    name        VARCHAR2(50),
+    birthYear   NUMBER(4),
+    addr        VARCHAR2(100),
+    mobile1     VARCHAR2(10),
+    mobile2     VARCHAR2(20),
+    height      NUMBER(3),
+    mDate       DATE,
+    managerID   VARCHAR2(10)  -- 자기 참조용 관리자 ID
+);
+
+
+INSERT INTO userTbl VALUES ('LSG', '이승기', 1987, '서울', '011', '1111111', 182, TO_DATE('08/08/08', 'RR/MM/DD'), 'JYP');
+INSERT INTO userTbl VALUES ('KBS', '김범수', 1979, '경남', '011', '2222222', 173, TO_DATE('12/04/04', 'RR/MM/DD'), 'JYP');
+INSERT INTO userTbl VALUES ('KKH', '김경호', 1971, '전남', '019', '3333333', 177, TO_DATE('07/07/07', 'RR/MM/DD'), 'LJB');
+INSERT INTO userTbl VALUES ('JYP', '조용필', 1950, '경기', '011', '4444444', 166, TO_DATE('09/04/04', 'RR/MM/DD'), NULL); -- 최고 관리자
+INSERT INTO userTbl VALUES ('SSK', '성시경', 1979, '서울', NULL, NULL, 186, TO_DATE('13/12/12', 'RR/MM/DD'), 'LSG');
+INSERT INTO userTbl VALUES ('LJB', '임재범', 1963, '서울', '016', '6666666', 182, TO_DATE('09/09/09', 'RR/MM/DD'), 'JYP');
+INSERT INTO userTbl VALUES ('YJS', '윤종신', 1969, '경남', NULL, NULL, 170, TO_DATE('05/05/05', 'RR/MM/DD'), 'KBS');
+INSERT INTO userTbl VALUES ('EJW', '은지원', 1972, '경북', '011', '8888888', 174, TO_DATE('14/03/03', 'RR/MM/DD'), 'LSG');
+INSERT INTO userTbl VALUES ('JKW', '조관우', 1965, '경기', '018', '9999999', 172, TO_DATE('10/10/10', 'RR/MM/DD'), 'KKH');
+
