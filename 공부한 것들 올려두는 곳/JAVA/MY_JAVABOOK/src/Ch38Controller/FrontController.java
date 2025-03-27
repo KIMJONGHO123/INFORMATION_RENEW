@@ -24,15 +24,17 @@ public class FrontController {
 		map.put("/user", new UserController());
 		
 		// 도서요청 API
-		map.put("/book", new BookController());
-	}
+		map.put("/book", new BookController());  // map = {
+												//		"/user" : UserController 객체
+												//		"/book" : BookController 객체
+	}											//			}
 	
 	// View로 부터 전달하는 요청 전달
 	public Map<String,Object> execute (Map<String,Object>params){
 		System.out.println("[FC] execute invoke...");
-		String endPoint = (String)params.get("endPoint");  // 사용자의 요청 EP를 확인
-		SubController controller = map.get(endPoint); // 요청사항을 처리할
-		return controller.execute(params);
+		String endPoint = (String)params.get("endPoint");  // 예) String endPoint = "/book"
+		SubController controller = map.get(endPoint); // 예) SubController controller = BookController 객체 반환 
+		return controller.execute(params); // 예) return BookController.execute(params)
 	};
 
 }

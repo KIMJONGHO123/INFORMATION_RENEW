@@ -25,7 +25,7 @@ public class UserServiceImpl {
 	
 	// 회원가입 (+TX처리필요)
 	public boolean userJoin(UserDto userdto) throws SQLException{
-		return userDao.insert(userdto)>0;
+		return userDao.insert(userdto)>0; //return pstmt.executeUpdate();는 INSERT가 정상적으로 1개의 데이터를 추가하면 → 1을 반환한다.
 	};
 	
 	// 회원정보수정
