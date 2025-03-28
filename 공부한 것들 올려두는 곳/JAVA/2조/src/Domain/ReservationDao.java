@@ -32,7 +32,7 @@ public class ReservationDao {
 	
 	public int delete(ReservationDto dto) throws Exception {
 		try {
-			pstmt = conn.prepareStatement("delete from RESERVE_TBL where Rental_id = ?");
+			pstmt = conn.prepareStatement("delete from Reserve_Tbl where RENTAL_ID = ?");
 			pstmt.setInt(1, dto.getRental_id());
 			
 			return pstmt.executeUpdate();
