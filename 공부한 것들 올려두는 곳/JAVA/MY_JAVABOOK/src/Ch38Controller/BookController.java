@@ -5,8 +5,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Ch38Domain.Dto.BookDto;
+import Ch38Domain.Service.BookServiceImpl;
 
 public class BookController implements SubController{
+	private BookServiceImpl bookService;
+	public BookController(){
+		try {
+			bookService = BookServiceImpl.getInstance();
+		} catch (Exception e) {
+			exceptionalHandler(e);
+		}
+		
+	}
 	Map<String,Object> response = new HashMap<>();
 	@Override
 	public Map<String, Object> execute(Map<String, Object> params) {
@@ -71,6 +81,17 @@ public class BookController implements SubController{
 		}
 		System.out.println();
 		return true;
+	}
+	
+	public Map<String,Object> exceptionalHandler(Exception e){
+		
+		if (response == null) {
+			response = new HashMap<>();
+		}
+		response.put("status", false);
+		response.put("message", e.getMessage());
+		response.put("message", e);
+		return response;
 	}
 
 }
