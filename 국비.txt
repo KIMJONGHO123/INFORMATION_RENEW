@@ -11,6 +11,6 @@ ncs안에 있는 내용 보기(외부평가볼떄)
 
 코딩테스트 구글 드라이브 주소 : https://drive.google.com/drive/folders/1eyd7V2LRc20TkclnMe5Ad8pLjPjwKbqS
 
-강사님 DB 사이트 주소 : http://192.168.16.203:3000/
+강사님 DB 사이트 주소 : https://cet-television-giving-hair.trycloudflare.com/login
 베포용 : http://52.79.188.126:3000/
 녹화본 비밀번호 : dgit8877
