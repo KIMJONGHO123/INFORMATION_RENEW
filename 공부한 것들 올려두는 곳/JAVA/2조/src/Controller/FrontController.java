@@ -3,7 +3,7 @@ package Controller;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FrontController{
+public class FrontController{ // FrontColntroller
 	private Map<String,ReservedController> map = new HashMap<>();
 	
 	//싱글톤
