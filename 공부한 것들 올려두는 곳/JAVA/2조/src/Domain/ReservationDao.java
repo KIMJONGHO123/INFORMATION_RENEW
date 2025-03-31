@@ -32,10 +32,12 @@ public class ReservationDao {
 	
 	public int delete(ReservationDto dto) throws Exception {
 		try {
+			System.out.println("삭제 시도 Rental_id = " + dto.getRental_id()); // 확인용
 			pstmt = conn.prepareStatement("delete from Reserve_Tbl where RENTAL_ID = ?");
 			pstmt.setInt(1, dto.getRental_id());
-			
-			return pstmt.executeUpdate();
+			int result =  pstmt.executeUpdate();
+			System.out.println("삭제 결과 row count = " + result); // 성공 여부 확인
+			return result;
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

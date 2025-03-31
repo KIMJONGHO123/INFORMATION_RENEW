@@ -43,8 +43,8 @@ public class ReservationController implements Controller {
 				System.out.println("[SC] 예약서비스 삭제 요청 확인!");
 				// 01 파라미터 받기
 				Integer Rental_id = (params.get("RENTAL_ID") !=null)? (Integer)params.get("RENTAL_ID"):null;
-				Integer Member_id = (params.get("Member_id") !=null)? (Integer)params.get("Member_id"):null;
-				String Reserve_order = (params.get("Reserve_order") !=null)? (String)params.get("Reserve_order"):null;
+				Integer Member_id = (params.get("Member_id") !=null)? (Integer)params.get("Member_id"):0;
+				String Reserve_order = (params.get("Reserve_order") !=null)? (String)params.get("Reserve_order"):"";
 				ReservationDto reserdto = new ReservationDto(Rental_id,Member_id,Reserve_order);
 				
 				// 유효성 검증

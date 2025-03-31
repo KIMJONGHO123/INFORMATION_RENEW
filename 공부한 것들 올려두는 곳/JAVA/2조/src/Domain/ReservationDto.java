@@ -1,7 +1,7 @@
 package Domain;
 
 public class ReservationDto {
-	private int Rental_id;
+	private int RENTAL_ID;
 	private int Member_id;
 	private String Reserve_order;
 	
@@ -11,17 +11,17 @@ public class ReservationDto {
 
 	public ReservationDto(int rental_id, int member_id, String reserve_order) {
 		super();
-		Rental_id = rental_id;
+		RENTAL_ID = rental_id;
 		Member_id = member_id;
 		Reserve_order = reserve_order;
 	}
 
 	public int getRental_id() {
-		return Rental_id;
+		return RENTAL_ID;
 	}
 
 	public void setRental_id(int rental_id) {
-		Rental_id = rental_id;
+		RENTAL_ID = rental_id;
 	}
 
 	public int getMember_id() {
@@ -42,7 +42,7 @@ public class ReservationDto {
 
 	@Override
 	public String toString() {
-		return "BookDto [Rental_id=" + Rental_id + ", Member_id=" + Member_id + ", Reserve_order=" + Reserve_order
+		return "BookDto [Rental_id=" + RENTAL_ID + ", Member_id=" + Member_id + ", Reserve_order=" + Reserve_order
 				+ "]";
 	}
 	
