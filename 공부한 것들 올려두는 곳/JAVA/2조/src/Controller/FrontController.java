@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FrontController{
-	private Map<String,Controller> map = new HashMap<>();
+	private Map<String,ReservedController> map = new HashMap<>();
 	
 	//싱글톤
 	private static FrontController instance;
@@ -27,7 +27,7 @@ public class FrontController{
 	public Map<String,Object> execute(Map<String,Object>params){
 		System.out.println("[FC] execute invoke...");
 		String endPoint = (String)params.get("endpoint");
-		Controller controller = map.get(endPoint);
+		ReservedController controller = map.get(endPoint);
 		return controller.execute(params);
 		
 	}

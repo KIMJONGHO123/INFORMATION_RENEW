@@ -9,7 +9,7 @@ import Controller.FrontController;
 
 
 
-public class Viewer {
+public class ReservedViewer {
 	
 	private int Rental_id;
 	private int Member_id;
@@ -18,7 +18,7 @@ public class Viewer {
 	private FrontController controller;
 	Scanner sc = new Scanner(System.in);
 	
-	public Viewer() {
+	public ReservedViewer() {
 		controller = new FrontController().getInstance();
 	}
 	
@@ -35,6 +35,7 @@ public class Viewer {
 			System.out.println("5 종료");
 			System.out.print("번호 : ");
 			int num = sc.nextInt();
+			
 			switch (num) {
 			case 1:
 				
