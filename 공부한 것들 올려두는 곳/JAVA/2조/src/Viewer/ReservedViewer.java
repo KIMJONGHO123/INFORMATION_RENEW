@@ -58,7 +58,7 @@ public class ReservedViewer {
 	}
 	public void delMenu() {
 		System.out.println("--------------------------");
-		System.out.println("예약 도서 삭제");
+		System.out.println("예약 도서 삭제"); //
 		System.out.println("--------------------------");
 		System.out.print("Rental_id: ");
 		int rentalId = Integer.parseInt(sc.next());
