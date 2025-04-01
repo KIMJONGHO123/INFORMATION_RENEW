@@ -299,10 +299,9 @@ user30:읽기,쓰기 가능, user20:읽기불가 쓰기가능, 나머지계정 :
  
 chmod 624 /perm/test
 ```
+![%EC%8B%9C%ED%97%98%EB%AC%B8%EC%A0%9C_root_%EA%B3%84%EC%A0%95](https://github.com/user-attachments/assets/40335109-6f82-4c59-b4e6-a5358bd0da64)
 
-![시험문제 root 계정.PNG](%25EC%258B%259C%25ED%2597%2598%25EB%25AC%25B8%25EC%25A0%259C_root_%25EA%25B3%2584%25EC%25A0%2595.png)
-
-![시험문제 user30 계정.PNG](%25EC%258B%259C%25ED%2597%2598%25EB%25AC%25B8%25EC%25A0%259C_user30_%25EA%25B3%2584%25EC%25A0%2595.png)
+![%EC%8B%9C%ED%97%98%EB%AC%B8%EC%A0%9C_user30_%EA%B3%84%EC%A0%95](https://github.com/user-attachments/assets/bb287ad1-2e97-4ea2-b50f-d63cbe565c9e)
 
 ## `usermod` : 사용자 계정정보 변경 명령어
 
