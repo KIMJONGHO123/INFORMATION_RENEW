@@ -17,10 +17,10 @@
 	/* request.getAttribute(String name) 메서드는 어떤 객체든 저장하고 꺼낼 수 있게 Object 타입으로 리턴해준다. 
 		그래서 (UserDto) 이렇게 형변환을 해줘야하는거다(Object -> UserDto).
 	*/
-	UserDto userdto;
+
 	
 	if(url.contains("/join")){
-		userdto = (UserDto)request.getAttribute("userdto");
+		UserDto userdto = (UserDto)request.getAttribute("userdto");
 		isValid(userdto);
 	}else if(url.contains("/myinfo")){
 		// myinfo
@@ -36,12 +36,11 @@
 <%!
 	void isValid(UserDto userdto) throws Exception{
 	
-		String password = userdto.getUserid();
 		if(userdto == null){
 			throw new Exception("userDto가 Null 입니다..");
 		}
 		
-		if(password.trim().isEmpty()){
+		if(userdto.getUserid().trim().isEmpty()){
 			throw new Exception("password를 입력하세요..");
 		}
 		if(userdto.getRole().trim().isEmpty()){

@@ -1,89 +1,88 @@
-<%@page import="java.sql.*,C04.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!-- 속성/기능추가 -->
-<%!
-	
+	pageEncoding="UTF-8" errorPage="./error.jsp"%>
+
+<!--속성/기능추가  -->
+<%@page import="java.sql.*,C04.*"%>
+<%!//속성/기능 추가가능
+	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	private String id = "system";
 	private String pw = "1234";
-	private String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-	
+
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
-	private void getConnection() throws Exception{
-		if(conn==null){
+
+	private void getConnection() throws Exception {
+		if (conn == null) {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection(db_url, id, pw);	
+			conn = DriverManager.getConnection(url, id, pw);
 		}
-		
 	}
-	private int insert(UserDto userdto) throws Exception{
-		
+
+	private int insert(UserDto userDto) throws Exception {
+
 		pstmt = conn.prepareStatement("insert into TBL_USER values(?,?,?)");
-		pstmt.setString(1, userdto.getUserid());
-		pstmt.setString(2, userdto.getPassword());
-		pstmt.setString(3, userdto.getRole());
+		pstmt.setString(1, userDto.getUserid());
+		pstmt.setString(2, userDto.getPassword());
+		pstmt.setString(3, userDto.getRole());
 		int result = pstmt.executeUpdate();
-		
+
 		conn.commit();
+
 		pstmt.close();
+
 		return result;
+
 	}
 	
 	private UserDto selectOne(String userid) throws Exception{
-		pstmt = conn.prepareStatement("select * from TBL_USER whre userid=?");
-		rs = pstmt.executeQuery();
-		UserDto userdto=null;
+		pstmt = conn.prepareStatement("select * from TBL_USER where userid='"+userid+"'");
+		rs =  pstmt.executeQuery();
+		UserDto userDto=null;
 		if(rs!=null){
 			if(rs.next()){
-				userdto = new UserDto();
-				userdto.setUserid(userid);
-				userdto.setPassword(rs.getString("password"));
-				userdto.setRole(rs.getString("role"));
+				userDto = new UserDto();
+				userDto.setUserid(userid);
+				userDto.setPassword(rs.getString("password"));
+				userDto.setRole(rs.getString("role"));			
 			}
 		}
 		rs.close();
 		pstmt.close();
-		return userdto;
+		return userDto;
 	}
-
-%>
-
-
+	
+	%>
 
 <!-- Service 함수 -->
-<% 
-
-	/* 요청 정보 확인 */
-	String URL = (String)request.getAttribute("url");
-	Integer serviceNo = (Integer)request.getAttribute("serviceNo");
-	System.out.println("url : " + URL);
-	System.out.println("serviceNo : " + serviceNo);
+<%
+	/* 요청 정보확인 */
+	String url = (String) request.getAttribute("url"); //
+	Integer serviceNo = (Integer) request.getAttribute("serviceNo");
+	System.out.println("URL : " + url);
+	System.out.println("SERVICENO : " + serviceNo);
 	
-	if(URL.contains("/join")){
+	if (url.contains("/join")) {
 		getConnection();
-		UserDto userdto = (UserDto)request.getAttribute("userdto");
-		if(insert(userdto)>0){
-			response.sendRedirect("./login_form.jsp"); // redirect 다수 사용시 return 예약어 사용
+	
+		UserDto userDto = (UserDto) request.getAttribute("userdto");
+	
+		if (insert(userDto) > 0) {
+			response.sendRedirect("login_form.jsp"); //redirect 다수 사용시 return 예약어 사용
 			return;
 		}
-	}
 	
-	if(URL.contains("/myinfo")){
-		request.setAttribute("isConfirm", true);
-		getConnection();
-		
-		String userid= request.getParameter("userid");
-		UserDto userdto = selectOne(userid);
-		
-		if(userdto !=null){
-			request.setAttribute("myinfo-result", userdto);
-			
-			request.getRequestDispatcher("./myinfo.jsp").forward(request, response);
-			return;
-		}
 	}
-
+	if (url.contains("/myinfo")) {
+		request.setAttribute("isConfirm",true);
+		
+		getConnection();
+		String userid = request.getParameter("userid");
+		UserDto userDto = selectOne(userid);
+		request.setAttribute("myinfo-result", userDto);	
+		request.getRequestDispatcher("./myinfo.jsp").forward(request,response); //forwarding 처리 - !
+		return ;
+		
+	
+	}
 %>

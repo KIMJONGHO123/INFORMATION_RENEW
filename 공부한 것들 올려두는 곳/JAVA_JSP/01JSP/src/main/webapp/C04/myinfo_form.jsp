@@ -48,7 +48,7 @@
 			
 			 -->
 				<h1>MYINFO</h1>
-				<form action="./dbUtils.jsp" method="post">
+				<form action="myinfo.jsp" method="post">
 					<input type="text" name="userid" /><br>
 					<input type="submit" value="조회" />
 				</form>
