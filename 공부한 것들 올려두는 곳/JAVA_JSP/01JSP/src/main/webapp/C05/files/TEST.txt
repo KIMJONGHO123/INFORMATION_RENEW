@@ -1,0 +1,40 @@
+LIMIT+LIKE는
+
+검색결과에서 몇개씩 추출하려고 사용함
+
+CREATE DATABASE LIMIT_LIKE_PRACTICE;
+
+USE LIMIT_LIKE_PRACTICE;
+
+Create table Product(
+title varchar(20),
+provider varchar(20),
+price int
+);
+
+insert into Product(title,provider,price) values('포도 주스','델몬트',3000);
+insert into Product(title,provider,price) values('코코팜 포도','해태',1200);
+insert into Product(title,provider,price) values('포도 알맹이','오리온',1000);
+insert into Product(title,provider,price) values('웰치스 포도맛','농심',1300);
+insert into Product(title,provider,price) values('해태 폴라포 포도','해태',600);
+insert into Product(title,provider,price) values('신라면','농심',900);
+insert into Product(title,provider,price) values('진라면','오뚜기',650);
+insert into Product(title,provider,price) values('열라면','오뚜기',850);
+insert into Product(title,provider,price) values('참깨라면','농심',850);
+insert into Product(title,provider,price) values('틈새라면','팔도',950);
+
+select * from Product;
+
+select * from Product where title LIKE '%포도%';
+
+select * from Product where title LIKE '%포도%' LIMIT 0,3;
+-포도로 검색시 1페이지에 출력될 내용
+select * from Product where title LIKE '%포도%' LIMIT 3,3;
+-포도로 검색시 2페이지에 출력될 내용
+
+select * from Product where title LIKE '%라면%';
+
+select * from Product where title LIKE '%라면%' LIMIT 0,3;
+-라면으로 검색시 1페이지에 출력될 내용
+select * from Product where title LIKE '%라면%' LIMIT 3,3;
+-라면으로 검색시 2페이지에 출력될 내용
