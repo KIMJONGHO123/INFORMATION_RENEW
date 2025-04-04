@@ -3,6 +3,6 @@ create table user_tbl(
     PASSWORD VARCHAR2(100) NOT NULL
 );
 
-select * from user_tbl;
+select * from tbl_user;
 
 commit;
