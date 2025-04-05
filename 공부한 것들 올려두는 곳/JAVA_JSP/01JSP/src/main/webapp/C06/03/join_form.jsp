@@ -18,12 +18,12 @@
 </div>
 <form action="${pageContext.request.contextPath}/C06/03/join.jsp" method="post">
 	<div>
-		<label>아이디 : </label><span>${userid}</span><br>
+		<label>아이디 : </label><span>${userid_input}</span><br>
 		<input type="text" name="userid"/>
 	</div>
 	
 	<div>
-		<label>패스워드 : </label><span>${password}</span><br />
+		<label>패스워드 : </label><span>${password_input}</span><br />
 		<input type="text" name="password"/>
 	</div>
 	<div>

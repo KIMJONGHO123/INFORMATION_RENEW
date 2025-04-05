@@ -32,20 +32,20 @@
 	String id = request.getParameter("userid");
 	String pw = request.getParameter("password");
 	
-	// 아이디 비밀번호 유효성 검사
-	if(id.equals("null")){
-		request.setAttribute("userid", "id를 입력하세요");
-	}
-	if(pw.equals("null")){
-		request.setAttribute("password", "password를 입력하세요");
-		
-	}
-	if(id.equals("null") || pw.equals("null")){
-		request.getRequestDispatcher("./join_form.jsp").forward(request, response);
-		return;
-	}
+		// 아이디 비밀번호 유효성 검사
+		if(id.isEmpty()){
+			request.setAttribute("userid_input", "id를 입력하세요");
+		}
+		if(pw.isEmpty()){
+			request.setAttribute("password_input", "password를 입력하세요");
+			
+		}
+		if(id.isEmpty() || pw.isEmpty()){
+			request.getRequestDispatcher("./join_form.jsp").forward(request, response);
+			return;
+		}
 
-	try{
+	try{	
 		// DB 연결
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, id_db, pw_db);

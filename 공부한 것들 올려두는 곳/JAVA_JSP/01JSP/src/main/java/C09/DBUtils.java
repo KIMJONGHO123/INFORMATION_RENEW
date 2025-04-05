@@ -38,7 +38,7 @@ public class DBUtils {
 	//3-4
 	
 	public int insertUser(UserDto userdto) throws Exception {
-		pstmt = conn.prepareStatement("insert into tbl_user values(?,?,?)");
+		pstmt = conn.prepareStatement("insert into tbl_test values(?,?,?)");
 		pstmt.setString(1, userdto.getUserid());
 		pstmt.setString(2, userdto.getPassword());
 		pstmt.setString(3, userdto.getRole());
@@ -51,7 +51,7 @@ public class DBUtils {
 	
 	public List<UserDto> selectAllUser() throws SQLException{
 		
-		pstmt = conn.prepareStatement("select * from tbl_user");
+		pstmt = conn.prepareStatement("select * from tbl_test");
 		rs = pstmt.executeQuery();
 		UserDto userdto = null;
 		List <UserDto> li = new ArrayList<>();
@@ -59,7 +59,7 @@ public class DBUtils {
 			while(rs.next()) {
 				userdto = new UserDto();
 				userdto.setUserid(rs.getString("userid"));
-				userdto.setUserid(rs.getString("password"));
+				userdto.setPassword(rs.getString("password"));
 				userdto.setRole(rs.getString("role"));
 				li.add(userdto);
 			}
@@ -68,18 +68,16 @@ public class DBUtils {
 	}
 	
 	public UserDto selectOneUser(String userid) throws SQLException {
-		pstmt = conn.prepareStatement("select * from tbl_user where userid=?");
+		pstmt = conn.prepareStatement("select * from tbl_test where USERID=?");
 		pstmt.setString(1, userid);
 		rs = pstmt.executeQuery();
 		UserDto userdto = null;
-		if(rs!=null) {
-			while(rs.next()) {
-				userdto = new UserDto();
-				userdto.setUserid(rs.getString("userid"));
-				userdto.setPassword(rs.getString("password"));
-				userdto.setRole(rs.getString("role"));
+		if(rs.next()) {
+			userdto = new UserDto();
+			userdto.setUserid(rs.getString("userid"));
+			userdto.setPassword(rs.getString("password"));
+			userdto.setRole(rs.getString("role"));
 				
-			}
 			
 		}
 		rs.close();
@@ -88,7 +86,7 @@ public class DBUtils {
 	}
 	
 	public int updateUser(UserDto userdto) throws Exception {
-		pstmt = conn.prepareStatement("update tbl_user set password=?,role=? where userid=?");
+		pstmt = conn.prepareStatement("update tbl_test set password=?,role=? where userid=?");
 		pstmt.setString(1, userdto.getPassword());
 		pstmt.setString(2, userdto.getRole());
 		pstmt.setString(3, userdto.getUserid());
@@ -97,5 +95,14 @@ public class DBUtils {
 		conn.commit();
 		pstmt.close();
 		return reulst;
+	}
+	
+	public int deleteUser(String userid) throws SQLException {
+		pstmt = conn.prepareStatement("delete from tbl_test where userid=?");
+		pstmt.setString(1, userid);
+		int result = pstmt.executeUpdate();
+		pstmt.close();
+		return result;
+		
 	}
 }

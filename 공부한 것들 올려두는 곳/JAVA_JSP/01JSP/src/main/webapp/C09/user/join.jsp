@@ -22,7 +22,7 @@
 	
 	// 이동(redirect or forwarding or script코드 처리(location.href=))
 	if(result>0){
-		out.println("<script>alert('insert 성공');location.href='../index.jsp'</script>");
+		out.println("<script>alert('insert 성공');location.href='./selectAll.jsp'</script>");
 
 	}else{
 		out.println("<script>alert('insert 실패');location.href='./join_form.jsp'</script>");

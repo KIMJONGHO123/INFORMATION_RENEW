@@ -27,7 +27,7 @@
 
 
 	<h1>USER UPDATE</h1>
-		<form action="./join.jsp">
+		<form action="./update.jsp">
 			<input type="text" name="userid" placeholder="userid" value="<%= userdto.getUserid()%>" readonly/> <br />
 			<input type="text" name="password" placeholder="password" value="<%= userdto.getPassword()%>"/> <br />
 			<input type="text" name="role" placeholder="role" value="<%= userdto.getRole()%>"/> <br />
