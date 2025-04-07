@@ -5,20 +5,7 @@
 <%
 	String userid = request.getParameter("userid");
 	int result = DBUtils.getInstance().deleteUser(userid);
-
+	
+	// Re + FR
+	response.sendRedirect("./selectAll.jsp");
 %>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-	<h1>삭제</h1>
-	
-		<a href="./selectAll.jsp?userid=${userid }">삭제하기</a>
-
-	
-
-</body>
-</html>
