@@ -48,9 +48,8 @@
 		<%@ include file="/layouts/header.jsp" %>
 		
 		<%@ include file="/layouts/Nav.jsp"  %>
-		
 		<main>
-			
+			<h2>index</h2>
 		</main>		
 	
 		<%@ include file="/layouts/Footer.jsp"  %>

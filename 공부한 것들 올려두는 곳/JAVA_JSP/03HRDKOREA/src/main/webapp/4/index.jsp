@@ -50,7 +50,7 @@
 		<%@ include file="/layouts/Nav.jsp"  %>
 		
 		<main>
-			
+			<h2>강사매출현황</h2>
 		</main>		
 	
 		<%@ include file="/layouts/Footer.jsp"  %>

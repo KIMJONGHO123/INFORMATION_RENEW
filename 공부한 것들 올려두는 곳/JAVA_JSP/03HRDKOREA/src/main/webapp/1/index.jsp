@@ -48,11 +48,45 @@
 		<%@ include file="/layouts/header.jsp" %>
 		
 		<%@ include file="/layouts/Nav.jsp"  %>
-		
+		<%@ page import="Utils.*,java.util.*,java.time.*,java.time.format.*" %>
+		<% List<TeacherDto> list = DBUtils.getInstance().selectAllTeacher(); %>
 		<main>
+			<h2>강사조회</h2>
+			<table>
+				<tr>
+					<th>강사코드</th>
+					<th>강사명</th>
+					<th>강의명</th>
+					<th>수강료</th>
+					<th>강사자격취득일</th>
+				
+				</tr>
+				
+				<%
+					for(TeacherDto dto : list){
+				%>
+						<tr>
+							<th><%= dto.getTeacher_code() %></th>
+							<th><%= dto.getTeacher_name() %></th>
+							<th><%=dto.getClass_name() %></th>
+							<th><%= dto.getClass_price() %></th>
+							<%
+								String date = dto.getTeacher_regist_date();
+								//INFMT
+								DateTimeFormatter infmt = DateTimeFormatter.ofPattern("yyyyMMdd");
+								LocalDate localDate = LocalDate.parse(date,infmt);
+								
+								//OUTFMT
+								DateTimeFormatter outfmt = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
+								out.println("<td>"+localDate.format(outfmt)+"</td>");
+							%>
+						</tr>
+				<%
+					}
+				%>
 			
-		</main>		
-	
+			</table>
+		</main>			
 		<%@ include file="/layouts/Footer.jsp"  %>
 	
 	</div>
