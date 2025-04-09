@@ -48,7 +48,7 @@
 		<%@ include file="/layouts/header.jsp" %>
 		
 		<%@ include file="/layouts/Nav.jsp"  %>
-		<%@ page import="Utils.*,java.util.*,java.time.*,java.time.format.*" %>
+		<%@ page import="java.text.DecimalFormat,Utils.*,java.util.*,java.time.*,java.time.format.*" %>
 		<% List<TeacherDto> list = DBUtils.getInstance().selectAllTeacher(); %>
 		<main>
 			<h2>강사조회</h2>
@@ -69,7 +69,13 @@
 							<th><%= dto.getTeacher_code() %></th>
 							<th><%= dto.getTeacher_name() %></th>
 							<th><%=dto.getClass_name() %></th>
-							<th><%= dto.getClass_price() %></th>
+
+							<%
+								int price = dto.getClass_price();
+								DecimalFormat fmt = new DecimalFormat();
+								
+							%>
+								<td><%= "\\"+fmt.format(price) %></td>
 							<%
 								String date = dto.getTeacher_regist_date();
 								//INFMT
