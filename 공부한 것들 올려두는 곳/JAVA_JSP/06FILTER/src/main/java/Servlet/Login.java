@@ -1,4 +1,4 @@
-package Servlets;
+package Servlet;
 
 import java.awt.image.DataBuffer;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import Utils.OracleDBUtils;
 import Utils.UserDto;
 
-@WebServlet("/login.do")
+//@WebServlet("/login.do")
 public class Login extends HttpServlet{
 	
 	private OracleDBUtils dbutils;

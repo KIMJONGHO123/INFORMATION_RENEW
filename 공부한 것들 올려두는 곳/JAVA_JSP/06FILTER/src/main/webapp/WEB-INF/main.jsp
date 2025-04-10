@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>INDEX PAGE</h1>
-
-	<a href="${pageContext.request.contextPath}/join.do" method="post">회원가입</a>
-	<a href="${pageContext.request.contextPath}/login.do" method="post">로그인</a>
+	<h1>MAIN PAGE</h1>
 </body>
 </html>

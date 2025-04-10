@@ -23,7 +23,7 @@ public class C04Servlet_Test extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 파라미터받기
 		String username = req.getParameter("username");
-		String password = req.getParameter("passsword");
+		String password = req.getParameter("password");
 		// 입력값 검증
 		// 작업 처리 -> 세션에 담기!
 		HttpSession session = req.getSession();
