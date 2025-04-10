@@ -12,6 +12,6 @@
 	System.out.println(classDto);
 	int result = DBUtils.getInstance().insertClass(classDto);
 	if(result>0){
-		out.println("<script>alert('수강신청이 정상적으로 완료되었습니다.!');location.href='../index.jsp'</script>")
+		out.println("<script>alert('수강신청이 정상적으로 완료되었습니다.!');location.href='../index.jsp'</script>");
 	}
 %>
