@@ -1,4 +1,4 @@
-package Servlet;
+package Servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,19 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.cj.MysqlConnection;
+
+import Utils.MysqlDbUtils;
 import Utils.OracleDBUtils;
 import Utils.UserDto;
 
-//@WebServlet("/join.do")
+@WebServlet("/join.do")
 public class Join extends HttpServlet{
 	
-private OracleDBUtils dbutils;
+private MysqlDbUtils dbutils;
 	
 	
 	@Override
 	public void init() throws ServletException {
 		try {
-			dbutils = OracleDBUtils.getInstance();
+			dbutils = MysqlDbUtils.getInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -40,7 +43,6 @@ private OracleDBUtils dbutils;
 		//파라미터 받기
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		System.out.println("POST /join.do username: "+ username);
 		//유효성(생략)
 		
 		//처리작업(DB저장)

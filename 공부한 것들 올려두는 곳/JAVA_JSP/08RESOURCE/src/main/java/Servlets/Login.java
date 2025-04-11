@@ -1,4 +1,4 @@
-package Servlet;
+package Servlets;
 
 import java.awt.image.DataBuffer;
 import java.io.IOException;
@@ -10,17 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Utils.MysqlDbUtils;
 import Utils.OracleDBUtils;
 import Utils.UserDto;
 
-//@WebServlet("/login.do")
+@WebServlet("/login.do")
 public class Login extends HttpServlet{
 	
-	private OracleDBUtils dbutils;
+	private MysqlDbUtils dbutils;
 	@Override
 	public void init() throws ServletException {
 		try {
-			dbutils = OracleDBUtils.getInstance();
+			dbutils = MysqlDbUtils.getInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,7 +50,6 @@ public class Login extends HttpServlet{
 				//세션 작업
 				HttpSession session = req.getSession();
 				session.setAttribute("username", username);
-				session.setAttribute("password", password);
 				session.setAttribute("role", dbUser.getRole());
 				isAuth=true;
 			}
@@ -59,24 +59,18 @@ public class Login extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-//		if(isAuth) {
-//			resp.sendRedirect(req.getContextPath()+"/main.do");
-//			return;
-//			
-//		}else {
-//			req.getRequestDispatcher("/WEB-INF/user/login.jsp").forward(req, resp);
-//			return;
-//		}
-		
-		if(!isAuth) { //로그인이 되지 않으면
+		if(isAuth) {
+			resp.sendRedirect(req.getContextPath()+"/main.do");
+			return;
+			
+		}else {
 			req.getRequestDispatcher("/WEB-INF/user/login.jsp").forward(req, resp);
 			return;
-		
 		}
 		//뷰
-	
+	}
 		
-	}	
+		
 		
 	
 	

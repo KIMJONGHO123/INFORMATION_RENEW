@@ -9,5 +9,5 @@ create table login_tbl (
     role varchar(20)
 );
 select * from login_tbl;
-
+update login_tbl set ROLE='ROLE_ADMIN' where ID='good'; 
 commit;
