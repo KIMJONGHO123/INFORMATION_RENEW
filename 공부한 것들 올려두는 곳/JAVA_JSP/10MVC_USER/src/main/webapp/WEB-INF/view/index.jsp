@@ -23,7 +23,7 @@
 				
 				${message }
 				<%
-					session.removeAttribute("message");
+					session.removeAttribute("message"); // 화면에 한번 표시하고 나면 session에서 제거하는 방식이다.
 				%>
 		</main>
 

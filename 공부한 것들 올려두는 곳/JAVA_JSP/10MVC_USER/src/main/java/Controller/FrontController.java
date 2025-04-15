@@ -23,7 +23,7 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-
+		// 서블릿이 최초 로딩될때 호출되며, 서브 컨트롤러들을 미리 등록하는 역할을 한다.
 		ServletContext context = config.getServletContext();
 
 

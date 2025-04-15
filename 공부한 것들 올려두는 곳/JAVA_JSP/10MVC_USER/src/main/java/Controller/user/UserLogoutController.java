@@ -72,7 +72,7 @@ public class UserLogoutController implements SubController{
 			// 서비스
 			
 			Map<String, Object> serviceResponse =userService.logout(req.getSession());
-			Boolean isLogout = (Boolean) serviceResponse.get("islogout");
+			Boolean isLogout = (Boolean) serviceResponse.get("isLogout");
 			
 			HttpSession reSession = req.getSession(true); //logout에서 세션을 지워서 새로 만들었다.
 			if(isLogout !=null && isLogout == true) {

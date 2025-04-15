@@ -43,44 +43,31 @@ public class UserDaoImpl extends Dao implements UserDao{
 	}
 	
 	//CRUD 
- 
+	
 	@Override
 	public int insert(UserDto userDto) throws Exception {
-	    int result = 0;
-	    ConnectionItem connectionItem = null; // 지역 변수로 사용
-	    try {
-	        // 1. Connection 획득
-	        connectionItem = connectionPool.getConnection();
-	        Connection conn = connectionItem.getConn();
-
-	        // 2. PreparedStatement 준비 및 파라미터 설정
-	        pstmt = conn.prepareStatement("insert into user_table values(?,?,?)");
-	        pstmt.setString(1, userDto.getUsername());
-	        pstmt.setString(2, userDto.getPassword());
-	        pstmt.setString(3, "ROLE_USER");
-
-	        // 3. 쿼리 실행 (executeUpdate 실행 후 결과 저장)
-	        result = pstmt.executeUpdate();
-
-	    } catch(SQLException e) {
-	        e.printStackTrace();
-	        throw new SQLException("USERDAO's INSERT SQL EXCEPTION!!");
-	    } finally {
-	        try { 
-	            if (pstmt != null) {
-	                pstmt.close();
-	            }
-	        } catch(Exception e2) {
-	            e2.printStackTrace();
-	        }
-	        // 4. Connection 반납 (쿼리 실행 후에 반환)
-	        if(connectionItem != null) {
-	            connectionPool.releaseConnection(connectionItem);
-	        }
-	    }
-	    return result;
+		try {
+			
+			connectionItem = connectionPool.getConnection();
+			Connection conn = connectionItem.getConn();
+			
+			pstmt = conn.prepareStatement("insert into user_table values(?,?,?)");
+			pstmt.setString(1, userDto.getUsername());
+			pstmt.setString(2, userDto.getPassword());
+			pstmt.setString(3, "ROLE_USER");
+			
+			//Connection release
+			connectionPool.releaseConnection(connectionItem);
+			
+			return pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw new SQLException("USERDAO's INSERT SQL EXCEPTION!!");
+		}finally {
+			try {pstmt.close();}catch(Exception e2) {}
+		}
 	}
-	
  
 	@Override
 	public int update(UserDto userDto) throws SQLException {
@@ -120,7 +107,7 @@ public class UserDaoImpl extends Dao implements UserDao{
 		connectionItem = connectionPool.getConnection();
 		Connection conn = connectionItem.getConn();
 		pstmt = conn.prepareStatement("select * from user_table where username=?");
-		pstmt.setString(1, username);
+		pstmt.setString(1, username); // 1번째 ?에 username을 넣는다.
 		rs = pstmt.executeQuery();
 		UserDto dto = null;
 		if(rs!=null) {

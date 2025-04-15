@@ -12,7 +12,7 @@ import Domain.Dao.ConnectionPool.ConnectionPool;
 import Domain.Dto.UserDto;
 
 
-public class UserServiceImpl {
+public class UserServiceImpl { //service단 == 비즈니스로직
 	
 	//
 	private UserDao userDao ;
@@ -60,22 +60,22 @@ public class UserServiceImpl {
 			
 			connectionPool.beginTransaction();
 			
-			UserDto userdb  = userDao.select(userdto.getUsername()); // username으로 찾았다.
-			if(userdb ==null) {
+			UserDto userdb  = userDao.select(userdto.getUsername()); // username으로 찾은 1행을 새로운 dto객체에 넣어 반환
+			if(userdb ==null) { // 해당 계정을 select 못했다는 거니까 계정이 없다는 말임.
 				response.put("isLogin", false);
 				response.put("message", "동일한 계정이 존재하지 않습니다.");
 				
 			}else {
-				// 패스워드 일치여부 확인
+				// 패스워드가 다를때
 				if(!userdto.getPassword().equals(userdb.getPassword())){
 					response.put("isLogin", false);
 					response.put("message", "패스워드가 일치하지 않습니다.");
-				}else {
-					// ID/패스워드 일치 -> 로그인 처리
+				}else { // userdto는 로그인 페이지에서 파라미터로 받은 문자열로 만든 객체, userdb는 DB에서 select해서 만든 객체(insert해서 넣어둔 값)
+					// 로그인이 정상으로 진행될때
 					session.setAttribute("isAuth", true);					
 					session.setAttribute("username", userdb.getUsername());
 					session.setAttribute("role", userdb.getRole());
-					session.setMaxInactiveInterval(60*10);
+					session.setMaxInactiveInterval(60*10); // session 유지 시간(10분)
 					
 					response.put("isLogin", true);
 					response.put("message", "로그인 성공");

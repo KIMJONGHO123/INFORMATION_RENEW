@@ -44,7 +44,7 @@ public class UserLoginController implements SubController{
 			//입력값검증
 			UserDto userDto = new UserDto(username,password,null);
 			boolean isOk = isValid(userDto);
-			if(!isOk) {
+			if(!isOk) { // 로그인의 유효성 검사를 통과 하지 못했을 때
 				req.getRequestDispatcher("/WEB-INF/view/user/login.jsp").forward(req, resp);
 				return ;
 			}

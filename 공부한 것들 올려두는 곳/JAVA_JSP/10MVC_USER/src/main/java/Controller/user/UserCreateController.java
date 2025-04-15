@@ -28,7 +28,7 @@ public class UserCreateController implements SubController{
 
 		try {
 			String uri = req.getMethod();
-			if(uri.equals("GET")) {
+			if(uri.equals("GET")) { // URL로 직접 치는 것도 GET 방식이다.
 				req.getRequestDispatcher("/WEB-INF/view/user/create.jsp").forward(req, resp);
 				return ;
 			}
@@ -40,7 +40,7 @@ public class UserCreateController implements SubController{
 			//입력값검증
 			UserDto userDto = new UserDto(username,password,role);
 			boolean isOk = isValid(userDto);
-			if(!isOk) {
+			if(!isOk) { // 회원가입 입력이 제대로 되지 않았을 때(유효성 검사를 통과하지 못한 경우)
 				req.getRequestDispatcher("/WEB-INF/view/user/create.jsp").forward(req, resp);
 				return ;
 			}
@@ -50,11 +50,11 @@ public class UserCreateController implements SubController{
 			boolean isJoin =  userService.userJoin(userDto);
 		
 			//뷰
-			if(isJoin) {
+			if(isJoin) { // 회원가입이 제대로 됬을때
 				resp.sendRedirect(req.getContextPath()+"/index.do");
 			}else {
 				req.getRequestDispatcher("/WEB-INF/view/user/join.jsp").forward(req, resp);
-			}
+			} // 아마도 create.jsp로 이동해야 하지 않을까 하는 생각
 			
 			
 		}catch(Exception e) {
