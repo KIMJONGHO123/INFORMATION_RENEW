@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Controller.book.BookCreateController;
+import Controller.book.BookDeleteController;
+import Controller.book.BookListController;
+import Controller.book.BookReadeController;
+import Controller.book.BookUpdateController;
 import Controller.user.AdminMainController;
 import Controller.user.ManagerMainController;
 import Controller.user.UserCreateController;
@@ -43,7 +48,13 @@ public class FrontController extends HttpServlet {
 			map.put("/user/create", new UserCreateController());
 			map.put("/user/login", new UserLoginController());
 			map.put("/user/logout", new UserLogoutController());
+			
 			// 도서(/book/*) - 도서CRUD
+			map.put("/book/list", new BookListController());
+			map.put("/book/create", new BookCreateController());
+			map.put("/book/read", new BookReadeController());			
+			map.put("/book/update", new BookUpdateController());
+			map.put("/book/delete", new BookDeleteController());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
