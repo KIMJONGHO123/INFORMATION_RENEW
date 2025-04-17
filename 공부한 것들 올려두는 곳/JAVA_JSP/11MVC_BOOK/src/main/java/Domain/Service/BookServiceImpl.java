@@ -54,25 +54,73 @@ public class BookServiceImpl {
 	public Map<String, Object> getAllBooks(Criteria criteria) throws Exception {
 		Map<String,Object> response = new LinkedHashMap<String, Object>();
 		
-		int offset = (criteria.getPageno()-1) * criteria.getAmount();
-		
-		// 페이지별 건수
-		List<BookDto> list = bookdao.selectAll(offset,criteria.getAmount());
-		
-		// PageDto
-		long count = bookdao.count();
-		PageDto pagedto = new PageDto(count,criteria);
-		
-		
-		if(list.size()>0) {
-			response.put("status", true);
-			response.put("list", list);
-			response.put("pageDto", pagedto);
+		if(criteria.getType()==null || criteria.getType().isEmpty()) { // 전체검색
+			int offset = (criteria.getPageno()-1) * criteria.getAmount();
+			
+			// 페이지별 건수
+			List<BookDto> list = bookdao.selectAll(offset,criteria.getAmount());
+			
+			// PageDto
+			long count = bookdao.count();
+			PageDto pagedto = new PageDto(count,criteria);
+			
+			
+			if(list.size()>0) {
+				response.put("status", true);
+				response.put("list", list);
+				response.put("pageDto", pagedto);
+			}else {
+				response.put("status", false);
+			}
 		}else {
-			response.put("status", false);
+			int offset = (criteria.getPageno()-1) * criteria.getAmount();
+			
+			// 페이지별 건수
+			int amount = criteria.getAmount();
+			String type = criteria.getType();
+			String keyword = criteria.getKeyword();
+			List<BookDto> list = bookdao.selectAll(offset,amount,type,keyword);
+			
+			// PageDto
+			long totalcount = bookdao.count(criteria);
+			PageDto pagedto = new PageDto(totalcount,criteria);
+
+			if(list.size()>0) {
+				response.put("status", true);
+				response.put("list", list);
+				response.put("pageDto", pagedto);
+			}else {
+				response.put("status", false);
+			}
+			
+			
 		}
+		
+		
 
 		return response;
+	}
+	public Map<String, Object> getBook(String bookCode) throws Exception {
+		Map<String,Object> response = new LinkedHashMap<String, Object>();
+		BookDto bookDto = bookdao.select(bookCode);
+		
+		if(bookDto == null) {
+			response.put("status", false);
+		}else {
+			response.put("status", true);
+			response.put("bookDto", bookDto);
+		}
+		return response;
+	}
+	public boolean modifyBook(BookDto bookDto) throws Exception{
+		int result = bookdao.update(bookDto);
+		
+		return result>0;
+	}
+	
+	public boolean removeBook(String bookCode) throws Exception{
+		int result = bookdao.delete(bookCode);
+		return result>0;
 	}
 	
 	

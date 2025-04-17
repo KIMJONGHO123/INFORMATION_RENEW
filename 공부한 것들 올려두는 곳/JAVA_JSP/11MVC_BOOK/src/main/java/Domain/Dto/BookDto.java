@@ -41,9 +41,11 @@ public class BookDto {
 	}
 	@Override
 	public String toString() {
-		return "BookDTO [bookcode=" + bookcode + ", bookname=" + bookname + ", publisher=" + publisher + ", isbn="
+		return "BookDto [bookcode=" + bookcode + ", bookname=" + bookname + ", publisher=" + publisher + ", isbn="
 				+ isbn + "]";
 	}
+	
+	
 	
 	
 }

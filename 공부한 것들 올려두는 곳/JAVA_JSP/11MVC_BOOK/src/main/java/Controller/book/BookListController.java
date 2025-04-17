@@ -44,6 +44,7 @@ public class BookListController implements SubController{
 				
 				
 			}else {
+				criteria = new Criteria(pageno,10,type,keyword);
 				
 			}
 			

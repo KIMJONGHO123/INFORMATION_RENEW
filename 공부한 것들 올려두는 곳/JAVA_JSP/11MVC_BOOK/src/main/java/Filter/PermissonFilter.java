@@ -39,10 +39,10 @@ public class PermissonFilter implements Filter{
 		pageGradeMap.put(projectPath+"/user/user",Role.ROLE_USER); //3
 		
 		pageGradeMap.put(projectPath+"/book/list",Role.Role_ANONYMOUS); // 0
-		pageGradeMap.put(projectPath+"/book/create",Role.Role_ANONYMOUS); // 0
+		pageGradeMap.put(projectPath+"/book/create",Role.ROLE_MANAGER); // 0
 		pageGradeMap.put(projectPath+"/book/read",Role.Role_ANONYMOUS); // 0
-		pageGradeMap.put(projectPath+"/book/update",Role.Role_ANONYMOUS); // 0
-		pageGradeMap.put(projectPath+"/book/delete",Role.Role_ANONYMOUS); // 0
+		pageGradeMap.put(projectPath+"/book/update",Role.ROLE_MANAGER); // 0
+		pageGradeMap.put(projectPath+"/book/delete",Role.ROLE_MANAGER); // 0
 		
 	}
 	@Override
