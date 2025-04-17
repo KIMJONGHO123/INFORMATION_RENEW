@@ -33,7 +33,7 @@ public class BookUpdateController implements SubController{
 			
 			String pageno = req.getParameter("pageno")!=null? req.getParameter("pageno"):"1";
 			
-			BookDto bookDto = new BookDto(bookCode,bookName,publisher,isbn);
+			BookDto bookDto = new BookDto(bookCode,bookName,publisher,isbn); // 수정된 BookDto를 저장한다.
 			
 			//유효성
 			if(!isValid(bookDto)) {

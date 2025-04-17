@@ -31,8 +31,8 @@ public class BookReadeController implements SubController{
 		try {
 			//파라미터받기
 			
-			String bookCode = req.getParameter("bookCode"); // 책이름 누르면 넘어갈때 받는거
-			String pageno = req.getParameter("pageno");  // 책이름 누르면 넘어갈때 받는거
+			String bookCode = req.getParameter("bookCode"); // 책이름 누르면 넘어갈때 받는거 // URL에서 bookCode를 받는다.
+			String pageno = req.getParameter("pageno");  // 책이름 누르면 넘어갈때 받는거 // URL에서 pageno를 받는다.
 			// 유효성 검사
 			if(!isValid(bookCode)) {
 				//req.setAttribute("message", "유효성 체크 오류!");

@@ -73,6 +73,7 @@ public class BookServiceImpl {
 				response.put("status", false);
 			}
 		}else {
+			// 키워드 검색 시 실행
 			int offset = (criteria.getPageno()-1) * criteria.getAmount();
 			
 			// 페이지별 건수

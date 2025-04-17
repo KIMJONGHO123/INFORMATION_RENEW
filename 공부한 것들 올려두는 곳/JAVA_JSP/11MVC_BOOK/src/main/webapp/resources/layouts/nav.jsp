@@ -64,6 +64,7 @@
         
         <button class="btn btn-outline-success" type="submit">Search</button>
         <!-- 버튼 누르면 /book/list?type=bookCode&keyword=10&pageno=2 가 전달된다. -->
+        <!-- Get방식에서는 action 링크 뒤에 ?type=...&keyword=... 이렇게 직접 안 붙여도 된다. 입력 필드에 name 속성이 붙어 있으면 자동으로 URL 뒤에 붙여서 전달해준다. -->
       </form>
     </div>
   </div>
