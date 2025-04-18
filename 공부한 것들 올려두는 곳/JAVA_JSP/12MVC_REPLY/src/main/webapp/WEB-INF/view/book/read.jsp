@@ -4,10 +4,19 @@
 <html>
 <head>
 	<!-- link -->
+	<!-- axios,공통css 부트스트랩 등이 들어있다.(최상단에 위치시켜야 한다.) -->
 	<%@include file="/resources/layouts/link.jsp" %>
+	
+	
+	<script>
+		const path = '${pageContext.request.contextPath}';
+		const bookCode = '${bookDto.bookcode}';
+		
+	</script>
 	
 	<!--  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book/read.css" />
+	<!-- 위에서 axios를 받았으니까(이미 필요한 리소스들이 로딩되어 있으니까) read.js안에서 그냥 axios 사용해도 된다. -->
 	<script src="${pageContext.request.contextPath}/resources/js/book/read.js" defer></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -62,10 +71,11 @@
 				<div class="reply-body">
 					<div class="items">
 						
-						<div class="item">
+		<!-- 				<div class="item">
 							<div class="left">
 								<div class="profile"></div>
 								<div>username</div>
+								
 							</div>
 							<div class="right">
 								<div class="date">2025-01-01</div>
@@ -74,7 +84,7 @@
 								</div>
 								<div class="button-group"></div>
 							</div>
-						</div>
+						</div> -->
 					
 					</div>
 				</div>
