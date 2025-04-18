@@ -60,7 +60,7 @@
 			<div class="reply-block">
 				<div class="reply-header">
 					<div>
-						댓글수 : <span>00</span>
+						댓글수 : <span class="reply-cnt">00</span>
 					</div>
 					<hr>
 					<div>

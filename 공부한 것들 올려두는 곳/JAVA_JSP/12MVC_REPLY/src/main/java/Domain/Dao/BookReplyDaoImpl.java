@@ -98,7 +98,7 @@ public class BookReplyDaoImpl extends Dao{
 				Connection conn = connectionItem.getConn();
 				
 				pstmt = conn.prepareStatement("select count(*) from tbl_reply where bookCode=?");
-				
+				pstmt.setString(1, bookCode);
 				rs = pstmt.executeQuery();
 				if(rs!=null && rs.next()) {
 					count = rs.getLong(1);
