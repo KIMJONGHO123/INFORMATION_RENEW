@@ -134,7 +134,7 @@ public class BookServiceImpl {
 		return result>0;
 	}
 	public List<BookReplyDto> getAllBookReply(String bookCode) throws Exception {
-		List<BookReplyDto> list = bookReplyDaoImpl.selectAll(bookCode);
+		List<BookReplyDto> list = bookReplyDaoImpl.selectAll(bookCode); // 해당 booCode에 대한 댓글만 가져오기 위해서 bookCode를 넘겨준다.
 		return list;
 	}
 	

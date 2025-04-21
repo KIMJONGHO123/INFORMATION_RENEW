@@ -53,12 +53,12 @@ class DaoTests {
 		
 		System.out.println(dao.count());
 	}
-	@Disabled
+	
 	@Test
 	void test6() throws Exception{
-		BookReplyDaoImpl.getInstance().insert(new BookReplyDto(-1,"CDG000000020", "bbbbb", "내용내용내용", LocalDateTime.now()));
+		BookReplyDaoImpl.getInstance().insert(new BookReplyDto(-1,"CDG000000020", "bbbbb", "테스트용", LocalDateTime.now()));
 	}
-	
+	@Disabled
 	@Test
 	void test7() throws Exception{
 		BookReplyDaoImpl.getInstance().selectAll("CDJ000025511").forEach(System.out::println);

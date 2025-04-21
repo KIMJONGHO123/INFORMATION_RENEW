@@ -69,8 +69,8 @@ public class BookReplyDaoImpl extends Dao{
 						dto = new BookReplyDto();
 						dto.setNo(rs.getInt(1));
 						dto.setBookCode(rs.getString(2));
-						dto.setContents(rs.getString(3));
-						dto.setUsername(rs.getString(4));
+						dto.setUsername(rs.getString(3));
+						dto.setContents(rs.getString(4));
 						dto.setCreateAt(rs.getTimestamp(5).toLocalDateTime());
 						
 						list.add(dto);

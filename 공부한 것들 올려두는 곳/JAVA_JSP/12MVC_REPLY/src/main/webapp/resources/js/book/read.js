@@ -34,11 +34,14 @@ function receiveReplyData(){
 				
 				console.log(resp.data)
 				const data = resp.data;
-				const cnt = data.replyCnt;
+				
+				const cnt = data.replyCnt; // 댓글 수 최신화
 				const replyCntEl = document.querySelector(".reply-cnt");
 				replyCntEl.innerHTML=cnt;
-				const items = data.replyList;
-				items.forEach((item)=>{
+				
+				
+				const items = data.replyList; // 해당 bookCode에 대한 모든 내용을 저장한 list
+				items.forEach((item)=>{ // items 는 bookCode와 일치하는 list이다.
 					createReplyItem(item)
 				})
 			 })
@@ -58,20 +61,20 @@ function createReplyItem(item){
 	
 	const usernameEl = document.createElement('div');
 	usernameEl.className='username';
-	usernameEl.innerHTML='item.username';
+	usernameEl.innerHTML=item.username;
 	
 	const rightEl = document.createElement('div');
 	rightEl.className='right';
 	
 	const dateEl = document.createElement('div');
 	dateEl.className='date';
-	dateEl.innerHTML='item.createAt';
+	dateEl.innerHTML=item.createAt;
 	
 	const contentEl = document.createElement('div');
 	contentEl.className='content';
 	
 	const textAreaEl = document.createElement('textarea');
-	textAreaEl.value= 'item.contents';
+	textAreaEl.value= item.contents;
 	
 	const buttonGroupEl = document.createElement('div');
 	buttonGroupEl.className='button-group';

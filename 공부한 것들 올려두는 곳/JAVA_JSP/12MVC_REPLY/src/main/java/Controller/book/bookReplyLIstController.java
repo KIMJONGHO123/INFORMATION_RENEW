@@ -41,19 +41,19 @@ public class bookReplyLIstController implements SubController{
 		try {
 			// 파라미터
 			
-			String bookCode = req.getParameter("bookCode");
+			String bookCode = req.getParameter("bookCode"); //receiveReplyData()에서 URL에 전달된 bookCode이다.
 			
 			// 입력값 검증
 			if(!isValid(bookCode)) {
 				
 			}
 			// 서비스
-			List<BookReplyDto> serviceResponse = bookservice.getAllBookReply(bookCode); //status랑 list들어있는 Map반환
+			List<BookReplyDto> serviceResponse = bookservice.getAllBookReply(bookCode); //booCode에 대한 모든 결과값을 list에 넣어 반환
 			long cnt = bookservice.bookReplyCount(bookCode);
 			
 			Map<String,Object> responseEntity = new LinkedHashMap<String, Object>();
 			responseEntity.put("replyCnt", cnt);
-			responseEntity.put("replyList", serviceResponse);
+			responseEntity.put("replyList", serviceResponse); // 해당 bookCode에 대한 한 행을 map에 저장
 			
 			
 			//뷰(Data 전달 JSON)
