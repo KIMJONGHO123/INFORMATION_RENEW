@@ -56,6 +56,7 @@ public class MemoController {
 	@PostMapping("/add")
 	public void add_post(@Valid MemoDto dto, BindingResult bindingResult, Model model) throws Exception { //@ModelAttribute 생략되어있는 거다.
 		log.info("POST /memo/add..."+ dto);
+		// 유효성 실패시
 		if(bindingResult.hasErrors()) {
 			//log.info("유효성 에러발생" + bindingResult.getFieldError("id").getDefaultMessage());
 			for(FieldError error : bindingResult.getFieldErrors()) {
@@ -65,7 +66,8 @@ public class MemoController {
 			return;
 			
 		}
-		
+		 
+		// 유효성 성공시
 		// 서비스
 		boolean isAdded = memoServiceImpl.registrationMemo(dto);
 		
