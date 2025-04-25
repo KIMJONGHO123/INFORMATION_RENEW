@@ -11,7 +11,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 public class DataSourceConfig {
-	// Spring-jdbc DataSource	
+		// Spring-jdbc DataSource	
 		@Bean
 		public DataSource dataSource2()
 		{

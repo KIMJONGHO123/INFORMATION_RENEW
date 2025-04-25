@@ -8,12 +8,14 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserDto {
 	
 	private String userid;		//유저ID
@@ -35,6 +37,7 @@ public class UserDto {
 	@NotNull(message="birthday 를 입력하세요")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate birthday;	//생년월일(yyyy-MM-dd)
+
 
 
 }
