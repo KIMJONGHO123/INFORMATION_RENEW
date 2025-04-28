@@ -49,7 +49,7 @@ public class MemoServiceImpl {
 		log.info("MemoService's addMemoTx Call! ");
 		int id=dto.getId(); 
 		mapper.insert(dto);	//01 정상INSERT 
-		dto.setId(id);		//PK오류 발생예정인 dto
+		dto.setId(id);		//PK오류 발생예정인 dto // Auto Increment 때문에 이 코드를 쓴다.
 		mapper.insert(dto);	//02	PK오류 발생!!		
 	}	
 }
