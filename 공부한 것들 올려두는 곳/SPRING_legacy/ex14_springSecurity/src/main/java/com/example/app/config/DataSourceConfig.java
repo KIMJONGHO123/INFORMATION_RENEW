@@ -18,7 +18,7 @@ public class DataSourceConfig {
 			//DriverManagerDataSource dataSource = new DriverManagerDataSource();
 			BasicDataSource dataSource = new BasicDataSource();
 			dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-			dataSource.setUrl("jdbc:mysql://localhost:3306/bookdb");
+			dataSource.setUrl("jdbc:mysql://localhost:3306/testdb");
 			dataSource.setUsername("root");
 			dataSource.setPassword("1234");	
 			 
@@ -36,7 +36,7 @@ public class DataSourceConfig {
 		{
 			HikariDataSource dataSource = new HikariDataSource();
 			dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-			dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/bookdb");
+			dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/testdb");
 			dataSource.setUsername("root");
 			dataSource.setPassword("1234");	
 			 

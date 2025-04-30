@@ -14,23 +14,23 @@ import com.example.app.domain.dto.UserDto;
 
 @Mapper
 public interface UserMapper {
-	@Insert(value="insert into tbl_user values(#{userid},#{username},#{password})")
-	void insert(UserDto dto1);
+	@Insert(value="insert into tbl_user values(#{username},#{password},#{role})")
+	public int insert(UserDto dto1);
 	
-	@Update("update tbl_user set where id=#{id}")
-	public int update(UserDto dto);
+//	@Update("update user_table set password= #{password}, rol=#{role} where username=#{username}")
+//	public int update(UserDto dto);
 	
-	@Delete("delete from tbl_user where userid=#{userid}")
-	public int delete(@Param("userid") String userid);
+//	@Delete("delete from user_table where username=#{username}")
+//	public int delete(@Param("username") String username);
 	
 	
-	@Select("select * from tbl_user where userid=#{userid} ")
-	public UserDto selectAt(String userid);
+	@Select("select * from tbl_user where username=#{username} ")
+	public UserDto selectAt(String username);
 	
-	@Select("select * from tbl_user")
-	public List<UserDto> selectAll();
+//	@Select("select * from user_table")
+//	public List<UserDto> selectAll();
 	
-	// xml
-	public List<Map<String,Object>> selectAllResultMapXml();
+//	// xml
+//	public List<Map<String,Object>> selectAllResultMapXml();
 	
 }
