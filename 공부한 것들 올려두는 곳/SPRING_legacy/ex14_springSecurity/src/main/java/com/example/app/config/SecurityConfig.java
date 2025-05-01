@@ -11,13 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.server.ui.LoginPageGeneratingWebFilter;
 
-import com.example.app.config.auth.PrincipalDetails;
+
 import com.example.app.config.auth.PrincipalDetailsService;
 import com.example.app.config.auth.exceptionHandler.CustomAccessDeniedHandler;
 import com.example.app.config.auth.exceptionHandler.CustomAuthenticationEntryPoint;
@@ -81,9 +78,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.rememberMe()
 			.key("rememberMeKey")
 			.rememberMeParameter("remember-me") // login.jsp의 remember-me 파라미터 명이랑 같아야한다.
-			.alwaysRemember(false)
-			.tokenValiditySeconds(60*60)
-			.tokenRepository(tokenRepository());
+			.alwaysRemember(false) // 사용자가 체크했을 때만 동작
+			.tokenValiditySeconds(60*60) // 유지 시간 : 60분
+			.tokenRepository(tokenRepository()); 
 		
 		
 	}
