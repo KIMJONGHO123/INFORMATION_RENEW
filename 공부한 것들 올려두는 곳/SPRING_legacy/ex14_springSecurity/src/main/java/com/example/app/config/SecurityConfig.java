@@ -104,6 +104,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //		.roles("ADMIN");
 		
 		auth.userDetailsService(principalDetailsService).passwordEncoder(passwordEncoder);
+//		"인증할 때는 principalDetailsService를 써라. 그리고 비밀번호는 passwordEncoder로 비교해라."
 	}
 	
 	@Bean
