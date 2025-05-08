@@ -1,0 +1,25 @@
+package com.example.demo.service;
+
+import com.example.demo.domain.entity.User;
+import com.example.demo.domain.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+public class LoginService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public User login(String username, String password) {
+        // 예시: username으로 조회 후 password 비교
+        Optional<User> optionalUser = userRepository.findById(username);
+        if (optionalUser.isPresent() && optionalUser.get().getPassword().equals(password)) {
+            return optionalUser.get();
+        }
+        return null;
+    }
+}
+

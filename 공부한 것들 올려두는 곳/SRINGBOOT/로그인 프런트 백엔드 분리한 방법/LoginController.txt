@@ -1,0 +1,42 @@
+package com.example.demo.controller.login;
+
+import com.example.demo.domain.entity.User;
+import com.example.demo.service.LoginService;
+
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
+@Controller
+public class LoginController {
+
+    @Autowired
+    private LoginService loginService;
+
+    @PostMapping("/login")
+    @ResponseBody
+    public ResponseEntity<?> login(@RequestBody Map<String, String> param, HttpSession session) {
+        String username = param.get("username");
+        String password = param.get("password");
+
+        User user = loginService.login(username, password);
+        if (user != null) {
+            session.setAttribute("loginUser", user);
+            return ResponseEntity.ok("success");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("fail");
+        }
+    }
+
+    @GetMapping("/login")
+//    http://localhost:8090/login 이렇게 입력하면 index.html로 이동
+    public String loginForm() {
+        return "redirect:http://192.168.10.1:5501/index.html";
+    }
+}
