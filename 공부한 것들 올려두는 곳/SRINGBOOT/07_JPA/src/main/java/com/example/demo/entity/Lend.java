@@ -19,17 +19,22 @@ public class Lend {
     private Long id;
 
 
-    @ManyToOne
+    //@ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="bookcode", foreignKey = @ForeignKey(name="FK_LEND_BOOK",
             foreignKeyDefinition = "foreign KEY(bookcode) references book(bookcode) on delete cascade on update cascade"))
     private Book book;
 
-    @ManyToOne
+    //@ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="username", foreignKey = @ForeignKey(name="FK_LEND_USER",
             foreignKeyDefinition = "foreign KEY(username) references user(username) on delete cascade on update cascade"))
     private User user;
 
+    // private User user;은 private String name; 이런거랑 같은거다.
 
-
+//    public User getUser() {
+//        return this.user;
+//    }
 
 }
