@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <!-- 헤더 영역 -->
+  <div th:insert="~{th/fragments/header::headerFragment}"></div>
+  <!--  insert는 태그(div)안에 넣는다-->
+  <h2>TEST2 PAGE</h2>
+  <!-- 푸터 영역 -->
+  <div th:replace="~{th/fragments/footer::footerFragment}"></div>
+  <!--replace는 넣는거 아니고 대체하는거다-->
+</body>
+</html>
