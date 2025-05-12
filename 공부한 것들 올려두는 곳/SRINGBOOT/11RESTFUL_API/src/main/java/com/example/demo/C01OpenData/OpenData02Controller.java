@@ -39,9 +39,8 @@
 //    }
 //}
 
-package com.example.demo;
+package com.example.demo.C01OpenData;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
@@ -52,7 +51,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +60,7 @@ import java.util.List;
 @RequestMapping("/openData")
 public class OpenData02Controller {
     String url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst";
-    String serviceKey = "xYZ80mMcU8S57mCCY/q8sRsk7o7G8NtnfnK7mVEuVxdtozrl0skuhvNf34epviHrru/jiRQ41FokE9H4lK0Hhg==";
+    String serviceKey = "AZo8RQcRwMW8PLpkUePdJZsezErn9NEWTBRKXkxPyu7tBKk2JqZH20tSvTdxa2Rjs7JLrAjXtp+foMJMLoLd0Q==";
     String pageNo = "1";
     String numOfRows = "10";
     String base_date = "20250509";

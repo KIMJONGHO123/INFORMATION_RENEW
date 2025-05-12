@@ -39,7 +39,7 @@
 //    }
 //}
 
-package com.example.demo;
+package com.example.demo.C01OpenData;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -61,7 +61,7 @@ import java.util.List;
 public class OpenData01Controller {
     //대구광역시_돌발 교통정보 조회 서비스(신)
     String url = "https://apis.data.go.kr/6270000/service/rest/dgincident";
-    String serviceKey = "xYZ80mMcU8S57mCCY/q8sRsk7o7G8NtnfnK7mVEuVxdtozrl0skuhvNf34epviHrru/jiRQ41FokE9H4lK0Hhg==";
+    String serviceKey = "AZo8RQcRwMW8PLpkUePdJZsezErn9NEWTBRKXkxPyu7tBKk2JqZH20tSvTdxa2Rjs7JLrAjXtp+foMJMLoLd0Q==";
     String pageNo = "1";
     String numOfRows = "10";
 
