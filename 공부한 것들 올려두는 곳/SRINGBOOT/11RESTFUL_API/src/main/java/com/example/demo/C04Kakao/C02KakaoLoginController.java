@@ -30,7 +30,7 @@ import java.util.List;
 public class C02KakaoLoginController {
 
     String REDIRECT_URI="http://192.168.16.24:8090/kakao/callback";
-    String CLIENT_ID="8d33096d7139a1b070275a41d5d24ef8";
+    String CLIENT_ID="";
     String LOGOUT_REDIRECT_URI="http://localhost:8090/kakao/login";
 
     KakaoTokenResponse kakaoTokenResponse;

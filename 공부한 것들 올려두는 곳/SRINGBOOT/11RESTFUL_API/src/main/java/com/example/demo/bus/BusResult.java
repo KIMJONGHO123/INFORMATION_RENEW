@@ -1,6 +1,7 @@
 package com.example.demo.bus;
 
 
+
 import jakarta.xml.bind.annotation.*;
 import lombok.Data;
 import lombok.Getter;
