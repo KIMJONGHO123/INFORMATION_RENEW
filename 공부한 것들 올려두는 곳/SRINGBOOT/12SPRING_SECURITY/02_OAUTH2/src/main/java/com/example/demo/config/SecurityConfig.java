@@ -3,7 +3,9 @@ package com.example.demo.config;
 
 import com.example.demo.config.auth.exceptionHandler.CustomAccessDeniedHandler;
 import com.example.demo.config.auth.exceptionHandler.CustomAuthenticationEntryPoint;
+
 import com.example.demo.config.auth.loginHandler.CustomLoginFailurehandler;
+
 import com.example.demo.config.auth.loginHandler.CustomLoginSuccesshandler;
 import com.example.demo.config.auth.logoutHandler.CustomLogoutHandler;
 import com.example.demo.config.auth.logoutHandler.CustomLogoutSuccessHandler;
@@ -21,13 +23,12 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
 	@Autowired
-	private CustomLoginSuccesshandler customLoginSuccesshandler;
-
+	private CustomLoginSuccesshandler customLoginSuccessHandler;
 	@Autowired
 	private CustomLogoutHandler customLogoutHandler;
-
 	@Autowired
 	private CustomLogoutSuccessHandler customLogoutSuccessHandler;
+
 
 	@Bean
 	protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
@@ -48,7 +49,7 @@ public class SecurityConfig {
 		http.formLogin((login)->{
 			login.permitAll();
 			login.loginPage("/login");
-			login.successHandler(customLoginSuccesshandler);
+			login.successHandler(customLoginSuccessHandler);
 			login.failureHandler(new CustomLoginFailurehandler());
 		});
 		//로그아웃
@@ -57,17 +58,20 @@ public class SecurityConfig {
 			logout.addLogoutHandler(customLogoutHandler);
 			logout.logoutSuccessHandler(customLogoutSuccessHandler);
 		});
-
 		//예외처리
-		http.exceptionHandling((ex)->{
 
+		http.exceptionHandling((ex)->{
 			ex.authenticationEntryPoint(new CustomAuthenticationEntryPoint());
 			ex.accessDeniedHandler(new CustomAccessDeniedHandler());
+		});
 
+		//OAUTH2-CLIENT
+		http.oauth2Login((oauth2)->{
+			oauth2.loginPage("/login");
 		});
 
 		return http.build();
-		
+
 	}
 
 	@Bean
