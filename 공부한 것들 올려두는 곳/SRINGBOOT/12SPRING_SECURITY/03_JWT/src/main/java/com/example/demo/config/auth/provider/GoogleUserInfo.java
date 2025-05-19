@@ -4,17 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NaverUserInfo implements  OAuth2UserInfo{
-
+public class GoogleUserInfo implements OAuth2UserInfo{
     private String id;
-    private Map<String, Object> attributes;
-
+    private Map<String,Object> attributes;
 
     @Override
     public String getName() {
@@ -23,12 +20,12 @@ public class NaverUserInfo implements  OAuth2UserInfo{
 
     @Override
     public String gotEmail() {
-        return (String)attributes.get("response");
+        return (String)attributes.get("email");
     }
 
     @Override
     public String getProvider() {
-        return "Naver";
+        return "google";
     }
 
     @Override
