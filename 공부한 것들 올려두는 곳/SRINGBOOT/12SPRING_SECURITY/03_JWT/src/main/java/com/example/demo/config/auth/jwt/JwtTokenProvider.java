@@ -1,34 +1,69 @@
 package com.example.demo.config.auth.jwt;
 
 
+import com.example.demo.config.auth.PrincipalDetails;
+import com.example.demo.domain.dto.UserDto;
+import com.example.demo.domain.entity.Signature;
+import com.example.demo.domain.entity.User;
+import com.example.demo.domain.repository.SignatureRepository;
+import com.example.demo.domain.repository.UserRepository;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
 @Component
 public class JwtTokenProvider {
 
-    //Key 저장
-    private final Key key;
+    @Autowired
+    private SignatureRepository signatureRepository;
 
-        public JwtTokenProvider() {
+    //Key 저장
+    private Key key;
+    public void setKey(Key key){
+        this.key = key;
+    }
+
+    // SIGNATURE 저장
+    @PostConstruct
+    public void init(){
+        List<Signature> list = signatureRepository.findAll(); // 1개값만 저장되어있음
+        if (list.isEmpty()){
+            // 처음 SIGNATURE 발급
             byte[] keyBytes = KeyGenerator.getKeygen();
             this.key = Keys.hmacShaKeyFor(keyBytes);
-            System.out.println("JwtTokenProvider Constructor  Key init: " + key);
+            Signature signature = new Signature();
+            signature.setKeyBytes(keyBytes);
+            signature.setCreateAt(LocalDate.now());
+            signatureRepository.save(signature);
+            System.out.println("JwtTokenProvider init Key init : " + key);
+        }else{
+            // 기존 SIGNATURE 발급
+            Signature signature=list.get(0);
+            this.key = Keys.hmacShaKeyFor(signature.getKeyBytes());
+            System.out.println("JWTTOKENPROVIDER init() 기존 KEY 사용 : "+key);
+        }
+    }
+
+
+        @Autowired
+        private UserRepository userRepository;
+
+        public JwtTokenProvider() {
+
 
         }
 
@@ -86,11 +121,21 @@ public class JwtTokenProvider {
                         .collect(Collectors.toList());
 
         String username = claims.getSubject(); //username
-        // UserDetails 객체를 만들어서 Authentication 리턴
-        UserDetails principal = new User(username, "", authorities);
+
+        // UserDetails 객체를 만들어서 Authentication 리턴principal = new User(username, "", authorities);
+        PrincipalDetails principalDetails = new PrincipalDetails();
+        Optional<User> userOptional = userRepository.findById(username);
+        UserDto userDto = null;
+        if (userOptional.isPresent()){
+            userDto = userDto.toDto(userOptional.get());
+
+        }
+        principalDetails.setUserDto(userDto);
+        principalDetails.setUserDto(userDto);
+
         System.out.println("JwtTokenProvider.getAuthentication UsernamePasswordAuthenticationToken : " + accessToken);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
-                new UsernamePasswordAuthenticationToken(principal, "", authorities);
+                new UsernamePasswordAuthenticationToken(principalDetails, null ,authorities);
         return usernamePasswordAuthenticationToken;
     }
 

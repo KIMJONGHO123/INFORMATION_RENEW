@@ -4,11 +4,14 @@ package com.example.demo.config;
 import com.example.demo.config.auth.exceptionHandler.CustomAccessDeniedHandler;
 import com.example.demo.config.auth.exceptionHandler.CustomAuthenticationEntryPoint;
 
+import com.example.demo.config.auth.jwt.JwtAuthorizationFilter;
+import com.example.demo.config.auth.jwt.JwtTokenProvider;
 import com.example.demo.config.auth.loginHandler.CustomLoginFailurehandler;
 
 import com.example.demo.config.auth.loginHandler.CustomLoginSuccesshandler;
 import com.example.demo.config.auth.logoutHandler.CustomLogoutHandler;
 import com.example.demo.config.auth.logoutHandler.CustomLogoutSuccessHandler;
+import com.example.demo.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +21,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -29,6 +34,11 @@ public class SecurityConfig {
 	private CustomLogoutHandler customLogoutHandler;
 	@Autowired
 	private CustomLogoutSuccessHandler customLogoutSuccessHandler;
+
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private JwtTokenProvider jwtTokenProvider;
 
 
 	@Bean
@@ -77,6 +87,9 @@ public class SecurityConfig {
 
 		});
 
+
+		// JWT FILTER ADD
+		http.addFilterBefore(new JwtAuthorizationFilter(userRepository,jwtTokenProvider), LogoutFilter.class);
 
 		return http.build();
 

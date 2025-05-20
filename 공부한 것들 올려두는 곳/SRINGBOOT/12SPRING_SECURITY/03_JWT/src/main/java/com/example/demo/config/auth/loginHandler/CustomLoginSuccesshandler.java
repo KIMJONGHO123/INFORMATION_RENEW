@@ -1,10 +1,13 @@
 package com.example.demo.config.auth.loginHandler;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import com.example.demo.config.auth.jwt.JwtProperties;
 import com.example.demo.config.auth.jwt.JwtTokenProvider;
 import com.example.demo.config.auth.jwt.TokenInfo;
+import com.example.demo.domain.entity.JwtToken;
+import com.example.demo.domain.repository.JwtTokenRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,6 +26,9 @@ public class CustomLoginSuccesshandler implements AuthenticationSuccessHandler {
 	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
 
+	@Autowired
+	private JwtTokenRepository jwtTokenRepository;
+	
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -33,6 +39,15 @@ public class CustomLoginSuccesshandler implements AuthenticationSuccessHandler {
 		cookie.setMaxAge(JwtProperties.ACCESS_TOKEN_EXPIRATION_TIME);
 		cookie.setPath("/");
 		response.addCookie(cookie);
+
+		// JWTTOKEN DB 저장
+		JwtToken jwtToken = new JwtToken();
+		jwtToken.setAccessToken(null);
+		jwtToken.setRefreshToken(null);
+		jwtToken.setUsername(null);
+		jwtToken.setCreatedAt(LocalDateTime.now());
+
+
 
 		response.sendRedirect(request.getContextPath()+"/");
 	}
