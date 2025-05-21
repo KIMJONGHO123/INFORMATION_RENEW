@@ -44,11 +44,11 @@ public class PrincipalDetailsOAuth2Service extends DefaultOAuth2UserService {
         System.out.println("getAttributes : " + oAuth2User.getAttributes());
 
         OAuth2UserInfo oAuth2UserInfo = null;
-        // Kakao, Naver, Google
+        //'kakao','naver','google','in-'
         String provider = userRequest.getClientRegistration().getRegistrationId();
-        Map<String,Object> attributes = oAuth2User.getAttributes();
-        if (provider.startsWith("kakao")){
 
+        Map<String,Object> attributes = oAuth2User.getAttributes();
+        if(provider.startsWith("kakao")) {
             //카카오 로그인시
             Long id = (Long)attributes.get("id");
             LocalDateTime connected_at = OffsetDateTime.parse( attributes.get("connected_at").toString() ).toLocalDateTime();
@@ -59,10 +59,8 @@ public class PrincipalDetailsOAuth2Service extends DefaultOAuth2UserService {
             System.out.println("properties :" + properties);
             System.out.println("kakao_account :" + kakao_account);
             oAuth2UserInfo = new KakaoUserInfo(id,connected_at,properties,kakao_account);
-            System.out.println("oAuth2UserInfo : " + oAuth2UserInfo);
 
-
-        } else if(provider.startsWith("naver")){
+        }else if(provider.startsWith("naver")){
             //네이버 로그인시
             Map<String,Object> response = (Map<String,Object>)attributes.get("response");
             String id = (String)response.get("id");
@@ -71,7 +69,6 @@ public class PrincipalDetailsOAuth2Service extends DefaultOAuth2UserService {
         }else if(provider.startsWith("google")){
             String id = (String)attributes.get("sub");
             oAuth2UserInfo = new GoogleUserInfo(id,attributes);
-
         }
 
         //구글 로그인시
@@ -111,5 +108,6 @@ public class PrincipalDetailsOAuth2Service extends DefaultOAuth2UserService {
         principalDetails.setAttributes(oAuth2User.getAttributes());
         principalDetails.setAccess_token(userRequest.getAccessToken().getTokenValue());
         return principalDetails;
+
     }
 }
