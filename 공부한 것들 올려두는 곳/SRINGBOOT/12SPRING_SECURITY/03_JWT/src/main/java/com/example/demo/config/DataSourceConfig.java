@@ -8,7 +8,7 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 public class DataSourceConfig {
 
-//	HikariCP DataSource
+	//	HikariCP DataSource
 	@Bean
 	public HikariDataSource dataSource()
 	{
@@ -16,10 +16,10 @@ public class DataSourceConfig {
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/testdb");
 		dataSource.setUsername("root");
-		dataSource.setPassword("1234");	
-		 
+		dataSource.setPassword("1234");
+
 		return dataSource;
 	}
-	
-	
+
+
 }

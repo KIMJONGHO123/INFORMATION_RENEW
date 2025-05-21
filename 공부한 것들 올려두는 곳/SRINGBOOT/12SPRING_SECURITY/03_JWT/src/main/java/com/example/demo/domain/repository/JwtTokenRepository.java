@@ -6,9 +6,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JwtTokenRepository extends JpaRepository<JwtToken,Long> {
-    //AccessToken을 받아 Entity 반환
+    //AccessToken 을 받아 Entity 반환
     JwtToken findByAccessToken(String accessToken);
 
-    // Username을 받아 Entity 반환
+    //Username 을 받아 Entity 반환
     JwtToken findByUsername(String username);
+
+    void deleteByAccessToken(String token);
 }

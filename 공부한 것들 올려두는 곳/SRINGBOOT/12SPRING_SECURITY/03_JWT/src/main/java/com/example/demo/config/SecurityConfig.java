@@ -5,10 +5,8 @@ import com.example.demo.config.auth.exceptionHandler.CustomAccessDeniedHandler;
 import com.example.demo.config.auth.exceptionHandler.CustomAuthenticationEntryPoint;
 import com.example.demo.config.auth.jwt.JwtAuthorizationFilter;
 import com.example.demo.config.auth.jwt.JwtTokenProvider;
-
-import com.example.demo.config.auth.loginHandler.CustomLoginFailurehandler;
-
-import com.example.demo.config.auth.loginHandler.CustomLoginSuccesshandler;
+import com.example.demo.config.auth.loginHandler.CustomLoginFailureHandler;
+import com.example.demo.config.auth.loginHandler.CustomLoginSuccessHandler;
 import com.example.demo.config.auth.logoutHandler.CustomLogoutHandler;
 import com.example.demo.config.auth.logoutHandler.CustomLogoutSuccessHandler;
 import com.example.demo.domain.repository.UserRepository;
@@ -29,7 +27,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 public class SecurityConfig {
 
 	@Autowired
-	private CustomLoginSuccesshandler customLoginSuccessHandler;
+	private CustomLoginSuccessHandler customLoginSuccessHandler;
 	@Autowired
 	private CustomLogoutHandler customLogoutHandler;
 	@Autowired
@@ -61,7 +59,7 @@ public class SecurityConfig {
 			login.permitAll();
 			login.loginPage("/login");
 			login.successHandler(customLoginSuccessHandler);
-			login.failureHandler(new CustomLoginFailurehandler());
+			login.failureHandler(new CustomLoginFailureHandler());
 		});
 		//로그아웃
 		http.logout((logout)->{

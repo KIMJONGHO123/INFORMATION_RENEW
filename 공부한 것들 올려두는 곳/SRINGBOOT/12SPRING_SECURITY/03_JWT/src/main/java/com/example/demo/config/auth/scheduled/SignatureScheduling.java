@@ -21,29 +21,21 @@ public class SignatureScheduling {
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
-    @Scheduled(cron = "0 * * * * *")
+    @Scheduled(cron = "0 0 * * * *") //초 분 시 일 월 요일(0-6)
     public void signatureScheduled(){
-        List<Signature> list = signatureRepository.findAll(); // 1개값만 저장되어있음
-        byte[] keyBytes = KeyGenerator.getKeygen();
-        if (list.isEmpty()){
-            // 처음 SIGNATURE 발급
-
-            jwtTokenProvider.setKey(Keys.hmacShaKeyFor(keyBytes));
-            // DB에 저장
-            Signature signature = new Signature();
-            signature.setKeyBytes(keyBytes);
-            signature.setCreateAt(LocalDate.now());
-            signatureRepository.save(signature);
-            System.out.println("signatureScheduling init Key init : ");
-        }else{
-            // 서명값 교체
-            signatureRepository.deleteAll();
-            Signature signature =new Signature();
-            signature.setKeyBytes(keyBytes);
-            signature.setCreateAt(LocalDate.now());
-            signatureRepository.save(signature);
-            jwtTokenProvider.setKey(Keys.hmacShaKeyFor(keyBytes));
-            System.out.println("JWTTOKENPROVIDER init() 새 KEY 발급 : ");
+        List<Signature> list = signatureRepository.findAll(); //1개 값만 저장되어있음
+        if(!list.isEmpty()){
+            signatureRepository.deleteAll(); //기존 서명키 제거
         }
+        //KENGEN으로 서명에 사용할 KEY배열 생성
+        byte[] keyBytes = KeyGenerator.getKeygen();
+        //새로운 서명키 발급  + DB 저장
+        Signature newSignature = new Signature();
+        newSignature.setKeyBytes(keyBytes);
+        newSignature.setCreateAt(LocalDate.now());
+        signatureRepository.save(newSignature);
+        //JWTTOKENPROVIDER에 새로 발급받은 KEY전달
+        jwtTokenProvider.setKey(Keys.hmacShaKeyFor(keyBytes));
+        System.out.println("SignatureScheduling Sinature Update...");
     }
 }

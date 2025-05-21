@@ -23,10 +23,10 @@ import java.util.Properties;
 @Configuration
 @EntityScan(basePackages = {"com.example.demo.domain.entity"})
 @EnableJpaRepositories
-(
+        (
                 basePackages ="com.example.demo.domain.repository",
                 transactionManagerRef = "jpaTransactionManager"
-)
+        )
 public class JpaConfig {
     @Autowired
     private DataSource dataSource;
