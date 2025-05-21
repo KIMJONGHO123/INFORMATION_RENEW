@@ -29,43 +29,43 @@ import java.util.stream.Collectors;
 public class JwtTokenProvider {
 
     @Autowired
-    private SignatureRepository signatureRepository;
+    private UserRepository userRepository;
 
+    @Autowired
+    private SignatureRepository signatureRepository;
     //Key 저장
     private Key key;
     public void setKey(Key key){
         this.key = key;
     }
+    public Key getKey(){
+        return this.key;
+    }
 
-    // SIGNATURE 저장
+    //SIGNATURE 저장
     @PostConstruct
     public void init(){
-        List<Signature> list = signatureRepository.findAll(); // 1개값만 저장되어있음
-        if (list.isEmpty()){
-            // 처음 SIGNATURE 발급
+        List<Signature> list = signatureRepository.findAll(); //1개 값만 저장되어있음
+        if(list.isEmpty()){
+            //처음 SIGNATURE발급
             byte[] keyBytes = KeyGenerator.getKeygen();
             this.key = Keys.hmacShaKeyFor(keyBytes);
             Signature signature = new Signature();
             signature.setKeyBytes(keyBytes);
             signature.setCreateAt(LocalDate.now());
             signatureRepository.save(signature);
-            System.out.println("JwtTokenProvider init Key init : " + key);
+            System.out.println("JwtTokenProvider init()  Key init : " + key);
         }else{
-            // 기존 SIGNATURE 발급
-            Signature signature=list.get(0);
+            //기존 SIGNATURE이용
+            Signature signature = list.get(0);
             this.key = Keys.hmacShaKeyFor(signature.getKeyBytes());
-            System.out.println("JWTTOKENPROVIDER init() 기존 KEY 사용 : "+key);
+            System.out.println("JwtTokenProvider init()  기존 Key 사용 : " + key);
         }
     }
+    public JwtTokenProvider() {
 
 
-        @Autowired
-        private UserRepository userRepository;
-
-        public JwtTokenProvider() {
-
-
-        }
+    }
 
     // 유저 정보를 가지고 AccessToken, RefreshToken 을 생성하는 메서드
     public TokenInfo generateToken(Authentication authentication) {
@@ -87,7 +87,7 @@ public class JwtTokenProvider {
 
         // Refresh Token 생성
         String refreshToken = Jwts.builder()
-                .setExpiration(new Date(now + JwtProperties.REFRESHTOKEN_EXPIRATION_TIME))    //1일: 24 * 60 * 60 * 1000 = 86400000
+                .setExpiration(new Date(now + JwtProperties.REFRESH_TOKEN_EXPIRATION_TIME))    //1일: 24 * 60 * 60 * 1000 = 86400000
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 
@@ -100,10 +100,6 @@ public class JwtTokenProvider {
                 .refreshToken(refreshToken)
                 .build();
     }
-
-
-
-
 
 
     // JWT 토큰을 복호화하여 토큰에 들어있는 정보를 꺼내는 메서드
@@ -122,20 +118,17 @@ public class JwtTokenProvider {
 
         String username = claims.getSubject(); //username
 
-        // UserDetails 객체를 만들어서 Authentication 리턴principal = new User(username, "", authorities);
+        // PrincipalDetails 생성
         PrincipalDetails principalDetails = new PrincipalDetails();
         Optional<User> userOptional = userRepository.findById(username);
         UserDto userDto = null;
-        if (userOptional.isPresent()){
-            userDto = userDto.toDto(userOptional.get());
-
-        }
-        principalDetails.setUserDto(userDto);
+        if(userOptional.isPresent())
+            userDto = UserDto.toDto(userOptional.get());
         principalDetails.setUserDto(userDto);
 
         System.out.println("JwtTokenProvider.getAuthentication UsernamePasswordAuthenticationToken : " + accessToken);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
-                new UsernamePasswordAuthenticationToken(principalDetails, null ,authorities);
+                new UsernamePasswordAuthenticationToken(principalDetails, "", authorities);
         return usernamePasswordAuthenticationToken;
     }
 
@@ -148,15 +141,16 @@ public class JwtTokenProvider {
     }
 
     // 토큰 정보를 검증하는 메서드
-    public boolean validateToken(String token) {
+    public boolean validateToken(String token) throws ExpiredJwtException{
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
         } catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
             log.info("Invalid JWT Token", e);
-//        }
-//        catch (ExpiredJwtException e) {
-//            log.info("Expired JWT Token", e);
+        }
+        catch (ExpiredJwtException e) {
+            log.info("Expired JWT Token", e);
+            throw new ExpiredJwtException(null,null,null);
 
         } catch (UnsupportedJwtException e) {
             log.info("Unsupported JWT Token", e);
@@ -165,4 +159,5 @@ public class JwtTokenProvider {
         }
         return false;
     }
+
 }

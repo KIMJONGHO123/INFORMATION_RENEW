@@ -3,9 +3,9 @@ package com.example.demo.config;
 
 import com.example.demo.config.auth.exceptionHandler.CustomAccessDeniedHandler;
 import com.example.demo.config.auth.exceptionHandler.CustomAuthenticationEntryPoint;
-
 import com.example.demo.config.auth.jwt.JwtAuthorizationFilter;
 import com.example.demo.config.auth.jwt.JwtTokenProvider;
+
 import com.example.demo.config.auth.loginHandler.CustomLoginFailurehandler;
 
 import com.example.demo.config.auth.loginHandler.CustomLoginSuccesshandler;
@@ -34,12 +34,12 @@ public class SecurityConfig {
 	private CustomLogoutHandler customLogoutHandler;
 	@Autowired
 	private CustomLogoutSuccessHandler customLogoutSuccessHandler;
-
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
-
+	@Autowired
+	private JwtAuthorizationFilter jwtAuthorizationFilter;
 
 	@Bean
 	protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
@@ -79,17 +79,16 @@ public class SecurityConfig {
 		//OAUTH2-CLIENT
 		http.oauth2Login((oauth2)->{
 			oauth2.loginPage("/login");
-		});
-
-		// SESSION INVALIDATED
-		http.sessionManagement((sessionManagementConfigurer)->{
-			sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS);	// session 만들지 않는 코드
 
 		});
+		//SESSION INVALIDATED
+		http.sessionManagement((sessionManagerConfigure)->{
+			sessionManagerConfigure.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		});
 
+		//JWT FILTER ADD
+		http.addFilterBefore(jwtAuthorizationFilter, LogoutFilter.class);
 
-		// JWT FILTER ADD
-		http.addFilterBefore(new JwtAuthorizationFilter(userRepository,jwtTokenProvider), LogoutFilter.class);
 
 		return http.build();
 
