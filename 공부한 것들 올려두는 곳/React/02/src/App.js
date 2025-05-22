@@ -10,7 +10,7 @@ import CustomModal from "./01JSX/Modeal";
 import ALL from "./01JSX/JSX_Basic";
 import CustomComponent from "./01JSX/CustomComponent";
 // 이벤트 확인
-import { Component01, Component02 } from "./01JSX/JSX_EVENT";
+import { Component01, Component02, Component03 } from "./01JSX/JSX_EVENT";
 
 function App() {
   const headerTitle = "HEADER TITLE";
@@ -42,6 +42,7 @@ function App() {
 
           <Component01></Component01>
           <Component02></Component02>
+          <Component03></Component03>
         </div>
       </div>
       <hr></hr>
