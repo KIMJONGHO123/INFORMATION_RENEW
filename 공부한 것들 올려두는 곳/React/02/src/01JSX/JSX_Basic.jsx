@@ -34,3 +34,26 @@ export const Elements4 = ({ auth, name }) => {
     return <h2>HELLO USWER, Name : {name}</h2>;
   }
 };
+
+// 04 반복문
+export const Elements5 = ({ list }) => {
+  // const list = props.list;
+  return (
+    <div className="items">
+      {list.map((item) => {
+        console.log(item);
+        return <div>{item}</div>;
+      })}
+    </div>
+  );
+};
+
+// 05 기본 컴포넌트 EXPORT
+const DefaultComponent1 = () => {
+  return <h1>DEFAULT COMPONENT1</h1>;
+};
+const DefaultComponent2 = () => {
+  return <h1>DEFALUT COMPONENT2</h1>;
+};
+
+export default { DefaultComponent1, DefaultComponent2 };
