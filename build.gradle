@@ -52,11 +52,6 @@ dependencies {
 
 }
 
-tasks.named('processResources') {
-	from('src/main/resources/ssl') {
-		into 'ssl'
-	}
-}
 
 tasks.named('test') {
 	useJUnitPlatform()
